@@ -1,4 +1,5 @@
 # PythonGame
+[![Build Status](https://travis-ci.com/AlexeyDer/PythonGame.svg?branch=master)](https://travis-ci.com/AlexeyDer/PythonGame)
 
 ## Our Teams
 * Деревцов Алексей <https://github.com/AlexeyDer> - Developer
