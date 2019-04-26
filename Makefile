@@ -1,6 +1,6 @@
 CFLAGS = -Wall -Werror 
 OBJ = g++ -c $< -o $@ $(CFLAGS)
-LIBS = -L/src/SFML/lib/release/
+LIBS = -L/SFML/lib/release/
 LDLIBS = -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
 
 .PHONY: clean
