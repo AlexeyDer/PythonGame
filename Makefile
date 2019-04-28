@@ -1,7 +1,7 @@
 .PHONY: clean
 
 CFLAGS = -Wall -Werror -Ibin/include/ -std=c++11
-EFLAG = -Lbin/lib/ -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
+EFLAG = -Lbin/lib/ -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system -lm
 OBJ = g++ -c $< -o $@ $(CFLAGS)
 
 all: bin build bin/main.exe 
