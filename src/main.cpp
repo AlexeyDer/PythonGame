@@ -167,8 +167,7 @@ int main()
 
         Font font;
         font.loadFromFile("images/5555.ttf");
-        if (!font.loadFromFile(
-                    "images/5555.ttf")) {
+        if (!font.loadFromFile("images/5555.ttf")) {
             return 0;
         }
         Text text, text0, text2, text3, text4, text5, text6, text7, text8,

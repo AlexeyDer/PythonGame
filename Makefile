@@ -1,6 +1,6 @@
 .PHONY: clean
 
-CFLAGS = -Wall -Werror -Ibin/include/
+CFLAGS = -Wall -Werror -Ibin/include/ -std=c++11
 EFLAG = -Lbin/lib/ -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
 OBJ = g++ -c $< -o $@ $(CFLAGS)
 
