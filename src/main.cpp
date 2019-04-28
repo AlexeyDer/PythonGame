@@ -5,7 +5,7 @@
 using namespace sf;
 
 float delay = 0.15;
-int dir, num = 2, max1 = 0, max2 = 0;
+int dir, num = 2, max1 = 0, max2 = 0, spe = 1;
 
 struct Snake {
     int x;
@@ -67,6 +67,7 @@ int main()
     int size = 32;
     int w = size * N;
     int h = size * M;
+    int L = 1, R = 1, U = 1, D = 1;
 
     RenderWindow window(
             VideoMode(w + 240, h),
@@ -106,14 +107,38 @@ int main()
                 window.close();
             }
 
-            if (Keyboard::isKeyPressed(Keyboard::Left))
+            if (Keyboard::isKeyPressed(Keyboard::Left) && R == 1) {
                 dir = 1;
-            if (Keyboard::isKeyPressed(Keyboard::Right))
+                L = 0;
+                U = 1;
+                D = 1;
+            }
+            if (Keyboard::isKeyPressed(Keyboard::Right) && L == 1) {
                 dir = 2;
-            if (Keyboard::isKeyPressed(Keyboard::Up))
+                R = 0;
+                U = 1;
+                D = 1;
+            }
+            if (Keyboard::isKeyPressed(Keyboard::Up) && D == 1) {
                 dir = 3;
-            if (Keyboard::isKeyPressed(Keyboard::Down))
+                U = 0;
+                L = 1;
+                R = 1;
+            }
+            if (Keyboard::isKeyPressed(Keyboard::Down) && U == 1) {
                 dir = 0;
+                D = 0;
+                L = 1;
+                R = 1;
+            }
+            if (Keyboard::isKeyPressed(Keyboard::Q))
+                return 0;
+            if (Keyboard::isKeyPressed(Keyboard::E)) {
+                num = 2;
+                max2 = 0;
+                spe = 1;
+                delay = 0.15;
+            }
 
             if (timer > delay) {
                 timer = 0;
@@ -131,7 +156,8 @@ int main()
                         "/home/ilya/Документы/PythonGame/images/5555.ttf")) {
                 return 0;
             }
-            Text text, text0, text2, text3, text4, text8, text9;
+            Text text, text0, text2, text3, text4, text5, text6, text7, text8,
+                    text9;
 
             if (num < max2) {
                 text3.setFont(font);
@@ -158,6 +184,17 @@ int main()
                 text9.setPosition(1017, 280);
                 window.draw(text9);
 
+                text5.setFont(font);
+                text5.setString("Press 'E' for restart");
+                text5.setCharacterSize(24);
+                text5.setPosition(975, 540);
+                window.draw(text5);
+
+                text5.setFont(font);
+                text5.setString("Press 'Q' for exit");
+                text5.setCharacterSize(24);
+                text5.setPosition(990, 580);
+                window.draw(text5);
             } else {
                 text0.setFont(font);
                 text0.setString("Python");
@@ -188,6 +225,24 @@ int main()
                 text4.setString(std::to_string(max1));
                 text4.setCharacterSize(24);
                 window.draw(text4);
+
+                text6.setFont(font);
+                text6.setString("speed:");
+                text6.setCharacterSize(20);
+                text6.setPosition(990, 530);
+                window.draw(text6);
+
+                text7.setFont(font);
+                text7.setPosition(1088, 530);
+                text7.setString(std::to_string(spe));
+                text7.setCharacterSize(20);
+                window.draw(text7);
+
+                text5.setFont(font);
+                text5.setString("Press 'Q' for exit");
+                text5.setCharacterSize(24);
+                text5.setPosition(990, 580);
+                window.draw(text5);
             }
 
             for (int i = 0; i < N; i++) {
