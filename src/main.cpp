@@ -4,12 +4,8 @@
 #include <time.h>
 using namespace sf;
 
-int N = 30, M = 20;
-int size = 32;
-int w = size * N;
-int h = size * M;
-
-int dir, num = 2;
+float delay = 0.15;
+int dir, num = 2, max1 = 0, max2 = 0;
 
 struct Snake {
     int x;
@@ -22,6 +18,7 @@ struct Fruct {
 
 void Tick()
 {
+    int N = 30, M = 20;
     for (int i = num; i > 0; --i) {
         s[i].x = s[i - 1].x;
         s[i].y = s[i - 1].y;
@@ -38,6 +35,12 @@ void Tick()
 
     if ((s[0].x == f.x) && (s[0].y == f.y)) {
         num++;
+
+        if (num >= max1)
+            max1 = num;
+        if (num >= max2)
+            max2 = num;
+
         f.x = rand() % N;
         f.y = rand() % M;
     }
@@ -59,6 +62,12 @@ void Tick()
 int main()
 {
     srand(time(NULL));
+
+    int N = 30, M = 20;
+    int size = 32;
+    int w = size * N;
+    int h = size * M;
+
     RenderWindow window(
             VideoMode(w + 240, h),
             "Snake Game",
@@ -81,7 +90,7 @@ int main()
     Sprite sprite3(t3);
 
     Clock clock;
-    float timer = 0, delay = 0.1;
+    float timer = 0;
 
     f.x = 10;
     f.y = 10;
@@ -114,6 +123,72 @@ int main()
             ////// draw  ///////
 
             window.clear();
+
+            Font font;
+            font.loadFromFile(
+                    "/home/ilya/Документы/PythonGame/images/5555.ttf");
+            if (!font.loadFromFile(
+                        "/home/ilya/Документы/PythonGame/images/5555.ttf")) {
+                return 0;
+            }
+            Text text, text0, text2, text3, text4, text8, text9;
+
+            if (num < max2) {
+                text3.setFont(font);
+                text3.setString("Your Result:");
+                text3.setCharacterSize(24);
+                text3.setPosition(990, 110);
+                window.draw(text3);
+
+                text4.setFont(font);
+                text4.setPosition(1150, 110);
+                text4.setString(std::to_string(max2));
+                text4.setCharacterSize(24);
+                window.draw(text4);
+
+                text8.setFont(font);
+                text8.setString("You");
+                text8.setCharacterSize(65);
+                text8.setPosition(1025, 180);
+                window.draw(text8);
+
+                text9.setFont(font);
+                text9.setString("Lose");
+                text9.setCharacterSize(65);
+                text9.setPosition(1017, 280);
+                window.draw(text9);
+
+            } else {
+                text0.setFont(font);
+                text0.setString("Python");
+                text0.setCharacterSize(65);
+                text0.setPosition(980, 10);
+                window.draw(text0);
+
+                text.setFont(font);
+                text.setString("Your Score:");
+                text.setCharacterSize(24);
+                text.setPosition(990, 110);
+                window.draw(text);
+
+                text2.setFont(font);
+                text2.setPosition(1150, 110);
+                text2.setString(std::to_string(num));
+                text2.setCharacterSize(24);
+                window.draw(text2);
+
+                text3.setFont(font);
+                text3.setString("Your Record:");
+                text3.setCharacterSize(24);
+                text3.setPosition(990, 170);
+                window.draw(text3);
+
+                text4.setFont(font);
+                text4.setPosition(1150, 170);
+                text4.setString(std::to_string(max1));
+                text4.setCharacterSize(24);
+                window.draw(text4);
+            }
 
             for (int i = 0; i < N; i++) {
                 for (int j = 0; j < M; j++) {
