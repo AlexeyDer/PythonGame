@@ -91,14 +91,14 @@ int main()
             Style::None); // Style::Fullscreen  //Style::None
 
     Texture t1, t2, t3;
-    t1.loadFromFile("/home/ilya/Документы/PythonGame/images/77.png");
-    t2.loadFromFile("/home/ilya/Документы/PythonGame/images/23.png");
-    t3.loadFromFile("/home/ilya/Документы/PythonGame/images/666.png");
-    if (!t1.loadFromFile("/home/ilya/Документы/PythonGame/images/77.png"))
+    t1.loadFromFile("images/77.png");
+    t2.loadFromFile("images/23.png");
+    t3.loadFromFile("images/666.png");
+    if (!t1.loadFromFile("images/77.png"))
         return 0;
-    if (!t2.loadFromFile("/home/ilya/Документы/PythonGame/images/23.png"))
+    if (!t2.loadFromFile("images/23.png"))
         return 0;
-    if (!t3.loadFromFile("/home/ilya/Документы/PythonGame/images/666.png"))
+    if (!t3.loadFromFile("images/666.png"))
         return 0;
 
     Sprite sprite1(t1);
@@ -166,9 +166,9 @@ int main()
         window.clear();
 
         Font font;
-        font.loadFromFile("/home/ilya/Документы/PythonGame/images/5555.ttf");
+        font.loadFromFile("images/5555.ttf");
         if (!font.loadFromFile(
-                    "/home/ilya/Документы/PythonGame/images/5555.ttf")) {
+                    "images/5555.ttf")) {
             return 0;
         }
         Text text, text0, text2, text3, text4, text5, text6, text7, text8,
