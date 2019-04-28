@@ -64,12 +64,21 @@ int main()
             "Snake Game",
             Style::None); // Style::Fullscreen  //Style::None
 
-    Texture t1, t2;
+    Texture t1, t2, t3;
     t1.loadFromFile("/home/ilya/Документы/PythonGame/images/77.png");
     t2.loadFromFile("/home/ilya/Документы/PythonGame/images/23.png");
+    t3.loadFromFile("/home/ilya/Документы/PythonGame/images/666.png");
+
+    if (!t1.loadFromFile("/home/ilya/Документы/PythonGame/images/77.png"))
+        return 0;
+    if (!t2.loadFromFile("/home/ilya/Документы/PythonGame/images/23.png"))
+        return 0;
+    if (!t3.loadFromFile("/home/ilya/Документы/PythonGame/images/666.png"))
+        return 0;
 
     Sprite sprite1(t1);
     Sprite sprite2(t2);
+    Sprite sprite3(t3);
 
     Clock clock;
     float timer = 0, delay = 0.1;
@@ -118,8 +127,8 @@ int main()
                 window.draw(sprite2);
             }
 
-            sprite2.setPosition(f.x * size, f.y * size);
-            window.draw(sprite2);
+            sprite3.setPosition(f.x * size, f.y * size);
+            window.draw(sprite3);
 
             window.display();
         }
