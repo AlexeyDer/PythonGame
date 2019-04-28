@@ -9,6 +9,30 @@ int size = 32;
 int w = size * N;
 int h = size * M;
 
+int dir, num = 2;
+
+struct Snake {
+    int x;
+    int y;
+} s[100];
+
+void Tick()
+{
+    for (int i = num; i > 0; --i) {
+        s[i].x = s[i - 1].x;
+        s[i].y = s[i - 1].y;
+    }
+
+    if (dir == 0)
+        s[0].y += 1;
+    if (dir == 1)
+        s[0].x -= 1;
+    if (dir == 2)
+        s[0].x += 1;
+    if (dir == 3)
+        s[0].y -= 1;
+}
+
 int main()
 {
     RenderWindow window(
@@ -23,11 +47,23 @@ int main()
     Sprite sprite1(t1);
     Sprite sprite2(t2);
 
+    Clock clock;
+    float timer = 0, delay = 0.1;
+
     while (window.isOpen()) {
+        float time = clock.getElapsedTime().asSeconds();
+        clock.restart();
+        timer += time;
+
         Event e;
         while (window.pollEvent(e)) {
             if (e.type == Event::Closed) {
                 window.close();
+            }
+
+            if (timer > delay) {
+                timer = 0;
+                Tick();
             }
 
             ////// draw  ///////
@@ -40,6 +76,12 @@ int main()
                     window.draw(sprite1);
                 }
             }
+
+            for (int i = 0; i < num; i++) {
+                sprite2.setPosition(s[i].x * size, s[i].y * size);
+                window.draw(sprite2);
+            }
+
             window.display();
         }
     }
