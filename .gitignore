@@ -3,3 +3,5 @@ README.md
 .vscode
 *.pro
 *.pro.user
+*.exe
+*.o
