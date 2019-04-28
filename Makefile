@@ -1,14 +1,13 @@
-CFLAGS = -Wall -Werror 
-OBJ = g++ -c $< -o $@ $(CFLAGS)
-LIBS = -L/SFML/lib/release/
-LDLIBS = -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
-
 .PHONY: clean
+
+CFLAGS = -Wall -Werror -Ibin/include/
+EFLAG = -Lbin/lib/ -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
+OBJ = g++ -c $< -o $@ $(CFLAGS)
 
 all: bin build bin/main.exe 
 
 bin/main.exe:  build/main.o build/binding.o 
-	g++ $^ -o $@ $(CFLAGS) $(LIBS) $(LDLIBS)
+	g++ $^ -o $@ $(CFLAGS)  $(EFLAG)
 
 build/binding.o: src/binding.cpp src/binding.h
 	$(OBJ)
