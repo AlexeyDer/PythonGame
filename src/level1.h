@@ -7,5 +7,9 @@ struct Level1 {
 };
 
 extern Level1 p;
+extern Level1 p1;
+extern Level1 p2;
+extern Level1 p3;
+extern Level1 p4;
 
 #endif

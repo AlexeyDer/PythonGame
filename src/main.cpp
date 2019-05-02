@@ -10,6 +10,10 @@ using namespace sf;
 struct Snake s[100];
 struct Fruct f;
 struct Level1 p;
+struct Level1 p1;
+struct Level1 p2;
+struct Level1 p3;
+struct Level1 p4;
 
 int main()
 {
@@ -48,11 +52,23 @@ int main()
     Clock clock;
     float timer = 0;
 
-    f.x = 10;
-    f.y = 10;
+    f.x = rand() % N;
+    f.y = rand() % M;
 
     p.x = -1;
     p.y = -1;
+
+    p2.x = -1;
+    p2.y = -1;
+
+    p3.x = -1;
+    p3.y = -1;
+
+    p4.x = -1;
+    p4.y = -1;
+
+    p1.x = -1;
+    p1.y = -1;
 
     while (window.isOpen()) {
         float time = clock.getElapsedTime().asSeconds();
@@ -101,8 +117,20 @@ int main()
 
         if (Keyboard::isKeyPressed(Keyboard::O)) {
             foo = 1;
-            p.x = 12;
-            p.y = 12;
+            p.x = rand() % N;
+            p.y = rand() % M;
+
+            p1.x = rand() % N;
+            p1.y = rand() % M;
+
+            p2.x = rand() % N;
+            p2.y = rand() % M;
+
+            p3.x = rand() % N;
+            p3.y = rand() % M;
+
+            p3.x = rand() % N;
+            p3.y = rand() % M;
         }
 
         if (foo == 0) {
@@ -301,6 +329,18 @@ int main()
         window.draw(sprite3);
 
         sprite2.setPosition(p.x * size, p.y * size);
+        window.draw(sprite2);
+
+        sprite2.setPosition(p1.x * size, p1.y * size);
+        window.draw(sprite2);
+
+        sprite2.setPosition(p2.x * size, p2.y * size);
+        window.draw(sprite2);
+
+        sprite2.setPosition(p3.x * size, p3.y * size);
+        window.draw(sprite2);
+
+        sprite2.setPosition(p4.x * size, p4.y * size);
         window.draw(sprite2);
 
         window.display();
