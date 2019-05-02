@@ -1,5 +1,6 @@
 #include "binding.h"
 #include "fruct.h"
+#include "level1.h"
 #include "snake.h"
 #include <SFML/Graphics.hpp>
 #include <cstdlib>
@@ -8,6 +9,7 @@ using namespace sf;
 
 struct Snake s[100];
 struct Fruct f;
+struct Level1 p;
 
 int main()
 {
@@ -21,6 +23,7 @@ int main()
     int w = size * N;
     int h = size * M;
     int L = 1, R = 1, U = 1, D = 1;
+    int foo = 0;
 
     RenderWindow window(
             VideoMode(w + 240, h),
@@ -48,6 +51,9 @@ int main()
     f.x = 10;
     f.y = 10;
 
+    p.x = -1;
+    p.y = -1;
+
     while (window.isOpen()) {
         float time = clock.getElapsedTime().asSeconds();
         clock.restart();
@@ -60,25 +66,25 @@ int main()
             }
         }
 
-        if (Keyboard::isKeyPressed(Keyboard::A) && R == 1) {
+        if (Keyboard::isKeyPressed(Keyboard::Left) && R == 1) {
             dir = 1;
             L = 0;
             U = 1;
             D = 1;
         }
-        if (Keyboard::isKeyPressed(Keyboard::D) && L == 1) {
+        if (Keyboard::isKeyPressed(Keyboard::Right) && L == 1) {
             dir = 2;
             R = 0;
             U = 1;
             D = 1;
         }
-        if (Keyboard::isKeyPressed(Keyboard::W) && D == 1) {
+        if (Keyboard::isKeyPressed(Keyboard::Up) && D == 1) {
             dir = 3;
             U = 0;
             L = 1;
             R = 1;
         }
-        if (Keyboard::isKeyPressed(Keyboard::S) && U == 1) {
+        if (Keyboard::isKeyPressed(Keyboard::Down) && U == 1) {
             dir = 0;
             D = 0;
             L = 1;
@@ -87,15 +93,29 @@ int main()
         if (Keyboard::isKeyPressed(Keyboard::Q))
             return 0;
         if (Keyboard::isKeyPressed(Keyboard::E)) {
-            num = 2;
+            num = 1;
             max2 = 0;
             spe = 1;
             delay = 0.15;
         }
 
-        if (timer > delay) {
-            timer = 0;
-            Tick(num, max1, max2, spe, dir, delay);
+        if (Keyboard::isKeyPressed(Keyboard::O)) {
+            foo = 1;
+            p.x = 12;
+            p.y = 12;
+        }
+
+        if (foo == 0) {
+            if (timer > delay) {
+                timer = 0;
+                Tick(num, max1, max2, spe, dir, delay);
+            }
+        }
+        if (foo == 1) {
+            if (timer > delay) {
+                timer = 0;
+                Lev(num, max1, max2, spe, dir, delay);
+            }
         }
 
         ////// draw  ///////
@@ -108,7 +128,7 @@ int main()
             return 0;
         }
         Text text, text0, text2, text3, text4, text5, text6, text7, text8,
-                text9;
+                text9, text10;
 
         if (num < max2) {
             text3.setFont(font);
@@ -146,7 +166,70 @@ int main()
             text5.setCharacterSize(24);
             text5.setPosition(990, 580);
             window.draw(text5);
-        } else {
+        }
+        /*
+        if (foo == 1) {
+            text0.setFont(font);
+            text0.setString("Python");
+            text0.setCharacterSize(65);
+            text0.setPosition(980, 10);
+            window.draw(text0);
+
+            text.setFont(font);
+            text.setString("Your Score:");
+            text.setCharacterSize(24);
+            text.setPosition(990, 110);
+            window.draw(text);
+
+            text2.setFont(font);
+            text2.setPosition(1150, 110);
+            text2.setString(std::to_string(num));
+            text2.setCharacterSize(24);
+            window.draw(text2);
+
+            text3.setFont(font);
+            text3.setString("Your Record:");
+            text3.setCharacterSize(24);
+            text3.setPosition(990, 170);
+            window.draw(text3);
+
+            text10.setFont(font);
+            text10.setString("Level 1");
+            text10.setCharacterSize(24);
+            text10.setPosition(990, 450);
+            window.draw(text10);
+
+            text4.setFont(font);
+            text4.setPosition(1150, 170);
+            text4.setString(std::to_string(max1));
+            text4.setCharacterSize(24);
+            window.draw(text4);
+
+            text6.setFont(font);
+            text6.setString("speed:");
+            text6.setCharacterSize(20);
+            text6.setPosition(990, 500);
+            window.draw(text6);
+
+            text7.setFont(font);
+            text7.setPosition(1088, 500);
+            text7.setString(std::to_string(spe));
+            text7.setCharacterSize(20);
+            window.draw(text7);
+
+            text5.setFont(font);
+            text5.setString("Press 'E' for restart");
+            text5.setCharacterSize(24);
+            text5.setPosition(975, 540);
+            window.draw(text5);
+
+            text5.setFont(font);
+            text5.setString("Press 'Q' for exit");
+            text5.setCharacterSize(24);
+            text5.setPosition(990, 580);
+            window.draw(text5);
+        } */
+        else {
             text0.setFont(font);
             text0.setString("Python");
             text0.setCharacterSize(65);
@@ -216,6 +299,9 @@ int main()
 
         sprite3.setPosition(f.x * size, f.y * size);
         window.draw(sprite3);
+
+        sprite2.setPosition(p.x * size, p.y * size);
+        window.draw(sprite2);
 
         window.display();
     }

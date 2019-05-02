@@ -7,13 +7,16 @@ LDLIBS = -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
 
 all: bin build bin/main.exe 
 
-bin/main.exe:  build/main.o build/binding.o build/tick.o
+bin/main.exe:  build/main.o build/binding.o build/tick.o build/lev.o
 	g++ $^ -o $@ $(CFLAGS) $(LIBS) $(LDLIBS)
 
 build/binding.o: src/binding.cpp src/binding.h
 	$(OBJ)
 
 build/tick.o: src/tick.cpp 
+	$(OBJ)
+
+build/lev.o: src/lev.cpp 
 	$(OBJ)
 
 build/main.o: src/main.cpp 
