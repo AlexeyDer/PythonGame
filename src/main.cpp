@@ -34,20 +34,24 @@ int main()
             "Snake Game",
             Style::None); // Style::Fullscreen  //Style::None
 
-    Texture t1, t2, t3;
+    Texture t1, t2, t3, t4;
     t1.loadFromFile("images/77.png");
     t2.loadFromFile("images/23.png");
     t3.loadFromFile("images/666.png");
+    t4.loadFromFile("images/44.png");
     if (!t1.loadFromFile("images/77.png"))
         return 0;
     if (!t2.loadFromFile("images/23.png"))
         return 0;
     if (!t3.loadFromFile("images/666.png"))
         return 0;
+    if (!t4.loadFromFile("images/44.png"))
+        return 0;
 
     Sprite sprite1(t1);
     Sprite sprite2(t2);
     Sprite sprite3(t3);
+    Sprite sprite4(t4);
 
     Clock clock;
     float timer = 0;
@@ -320,20 +324,20 @@ int main()
         sprite3.setPosition(f.x * size, f.y * size);
         window.draw(sprite3);
 
-        sprite2.setPosition(p.x * size, p.y * size);
-        window.draw(sprite2);
+        sprite4.setPosition(p.x * size, p.y * size);
+        window.draw(sprite4);
 
-        sprite2.setPosition(p1.x * size, p1.y * size);
-        window.draw(sprite2);
+        sprite4.setPosition(p1.x * size, p1.y * size);
+        window.draw(sprite4);
 
-        sprite2.setPosition(p2.x * size, p2.y * size);
-        window.draw(sprite2);
+        sprite4.setPosition(p2.x * size, p2.y * size);
+        window.draw(sprite4);
 
-        sprite2.setPosition(p3.x * size, p3.y * size);
-        window.draw(sprite2);
+        sprite4.setPosition(p3.x * size, p3.y * size);
+        window.draw(sprite4);
 
-        sprite2.setPosition(p4.x * size, p4.y * size);
-        window.draw(sprite2);
+        sprite4.setPosition(p4.x * size, p4.y * size);
+        window.draw(sprite4);
 
         window.display();
     }
