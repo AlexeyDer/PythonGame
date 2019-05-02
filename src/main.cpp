@@ -201,6 +201,12 @@ int main()
                 text10.setCharacterSize(50);
                 text10.setPosition(990, 400);
                 window.draw(text10);
+
+                text12.setFont(font);
+                text12.setString("Press 'Z' out Level1");
+                text12.setCharacterSize(24);
+                text12.setPosition(975, 500);
+                window.draw(text12);
             }
 
             text9.setFont(font);
@@ -257,26 +263,34 @@ int main()
                 text10.setFont(font);
                 text10.setString("Level   1");
                 text10.setCharacterSize(50);
-                text10.setPosition(990, 400);
+                text10.setPosition(990, 360);
                 window.draw(text10);
+
+                text12.setFont(font);
+                text12.setString("Press 'Z' out Level1");
+                text12.setCharacterSize(24);
+                text12.setPosition(975, 500);
+                window.draw(text12);
             }
             text6.setFont(font);
             text6.setString("speed:");
             text6.setCharacterSize(24);
-            text6.setPosition(1000, 460);
+            text6.setPosition(1030, 460);
             window.draw(text6);
 
             text7.setFont(font);
-            text7.setPosition(1098, 460);
+            text7.setPosition(1128, 460);
             text7.setString(std::to_string(spe));
             text7.setCharacterSize(24);
             window.draw(text7);
 
-            text11.setFont(font);
-            text11.setString("Press 'X' for Level 1");
-            text11.setCharacterSize(24);
-            text11.setPosition(975, 500);
-            window.draw(text11);
+            if (foo == 0) {
+                text11.setFont(font);
+                text11.setString("Press 'X' exit Level1");
+                text11.setCharacterSize(24);
+                text11.setPosition(975, 500);
+                window.draw(text11);
+            }
 
             text5.setFont(font);
             text5.setString("Press 'E' for restart");
