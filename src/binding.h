@@ -8,5 +8,6 @@ using namespace std;
 
 double Tick(int& num, int& max1, int& max2, int& spe, int& dir, float& delay);
 double Lev(int& num, int& max1, int& max2, int& spe, int& dir, float& delay);
+double Lev2(int& num, int& max1, int& max2, int& spe, int& dir, float& delay);
 
 #endif // BINDING_H

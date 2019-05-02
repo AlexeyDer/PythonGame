@@ -1,6 +1,7 @@
 #include "binding.h"
 #include "fruct.h"
 #include "level1.h"
+#include "level2.h"
 #include "snake.h"
 #include <SFML/Graphics.hpp>
 #include <cstdlib>
@@ -14,6 +15,16 @@ struct Level1 p1;
 struct Level1 p2;
 struct Level1 p3;
 struct Level1 p4;
+struct Level2 t;
+struct Level2 t1;
+struct Level2 t2;
+struct Level2 t3;
+struct Level2 t4;
+struct Level2 t5;
+struct Level2 t6;
+struct Level2 t7;
+struct Level2 t8;
+struct Level2 t9;
 
 int main()
 {
@@ -34,24 +45,24 @@ int main()
             "Snake Game",
             Style::None); // Style::Fullscreen  //Style::None
 
-    Texture t1, t2, t3, t4;
-    t1.loadFromFile("images/77.png");
-    t2.loadFromFile("images/23.png");
-    t3.loadFromFile("images/666.png");
-    t4.loadFromFile("images/44.png");
-    if (!t1.loadFromFile("images/77.png"))
+    Texture tex1, tex2, tex3, tex4;
+    tex1.loadFromFile("images/77.png");
+    tex2.loadFromFile("images/23.png");
+    tex3.loadFromFile("images/666.png");
+    tex4.loadFromFile("images/44.png");
+    if (!tex1.loadFromFile("images/77.png"))
         return 0;
-    if (!t2.loadFromFile("images/23.png"))
+    if (!tex2.loadFromFile("images/23.png"))
         return 0;
-    if (!t3.loadFromFile("images/666.png"))
+    if (!tex3.loadFromFile("images/666.png"))
         return 0;
-    if (!t4.loadFromFile("images/44.png"))
+    if (!tex4.loadFromFile("images/44.png"))
         return 0;
 
-    Sprite sprite1(t1);
-    Sprite sprite2(t2);
-    Sprite sprite3(t3);
-    Sprite sprite4(t4);
+    Sprite sprite1(tex1);
+    Sprite sprite2(tex2);
+    Sprite sprite3(tex3);
+    Sprite sprite4(tex4);
 
     Clock clock;
     float timer = 0;
@@ -62,6 +73,9 @@ int main()
     p.x = -1;
     p.y = -1;
 
+    p1.x = -1;
+    p1.y = -1;
+
     p2.x = -1;
     p2.y = -1;
 
@@ -71,8 +85,36 @@ int main()
     p4.x = -1;
     p4.y = -1;
 
-    p1.x = -1;
-    p1.y = -1;
+    ///////////////
+    t.x = -1;
+    t.y = -1;
+
+    t1.x = -1;
+    t1.y = -1;
+
+    t2.x = -1;
+    t2.y = -1;
+
+    t3.x = -1;
+    t3.y = -1;
+
+    t4.x = -1;
+    t4.y = -1;
+
+    t5.x = -1;
+    t5.y = -1;
+
+    t6.x = -1;
+    t6.y = -1;
+
+    t7.x = -1;
+    t7.y = -1;
+
+    t8.x = -1;
+    t8.y = -1;
+
+    t9.x = -1;
+    t9.y = -1;
 
     while (window.isOpen()) {
         float time = clock.getElapsedTime().asSeconds();
@@ -137,6 +179,39 @@ int main()
             p4.y = rand() % M;
         }
 
+        if (Keyboard::isKeyPressed(Keyboard::C)) {
+            foo = 2;
+            t.x = rand() % N;
+            t.y = rand() % M;
+
+            t1.x = rand() % N;
+            t1.y = rand() % M;
+
+            t2.x = rand() % N;
+            t2.y = rand() % M;
+
+            t3.x = rand() % N;
+            t3.y = rand() % M;
+
+            t4.x = rand() % N;
+            t4.y = rand() % M;
+
+            t5.x = rand() % N;
+            t5.y = rand() % M;
+
+            t6.x = rand() % N;
+            t6.y = rand() % M;
+
+            t7.x = rand() % N;
+            t7.y = rand() % M;
+
+            t8.x = rand() % N;
+            t8.y = rand() % M;
+
+            t9.x = rand() % N;
+            t9.y = rand() % M;
+        }
+
         if (Keyboard::isKeyPressed(Keyboard::Z)) {
             foo = 0;
 
@@ -166,6 +241,12 @@ int main()
             if (timer > delay) {
                 timer = 0;
                 Lev(num, max1, max2, spe, dir, delay);
+            }
+        }
+        if (foo == 2) {
+            if (timer > delay) {
+                timer = 0;
+                Lev2(num, max1, max2, spe, dir, delay);
             }
         }
 
@@ -338,6 +419,36 @@ int main()
         window.draw(sprite4);
 
         sprite4.setPosition(p4.x * size, p4.y * size);
+        window.draw(sprite4);
+        //////////////////////////
+        sprite4.setPosition(t.x * size, t.y * size);
+        window.draw(sprite4);
+
+        sprite4.setPosition(t1.x * size, t1.y * size);
+        window.draw(sprite4);
+
+        sprite4.setPosition(t2.x * size, t2.y * size);
+        window.draw(sprite4);
+
+        sprite4.setPosition(t3.x * size, t3.y * size);
+        window.draw(sprite4);
+
+        sprite4.setPosition(t4.x * size, t4.y * size);
+        window.draw(sprite4);
+
+        sprite4.setPosition(t5.x * size, t5.y * size);
+        window.draw(sprite4);
+
+        sprite4.setPosition(t6.x * size, t6.y * size);
+        window.draw(sprite4);
+
+        sprite4.setPosition(t7.x * size, t7.y * size);
+        window.draw(sprite4);
+
+        sprite4.setPosition(t8.x * size, t8.y * size);
+        window.draw(sprite4);
+
+        sprite4.setPosition(t9.x * size, t9.y * size);
         window.draw(sprite4);
 
         window.display();
