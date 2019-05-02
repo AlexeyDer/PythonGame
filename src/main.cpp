@@ -174,17 +174,17 @@ int main()
             return 0;
         }
         Text text, text0, text2, text3, text4, text5, text6, text7, text8,
-                text9, text10;
+                text9, text10, text11, text12;
 
         if (num < max2) {
             text3.setFont(font);
             text3.setString("Your Result:");
             text3.setCharacterSize(24);
-            text3.setPosition(990, 110);
+            text3.setPosition(990, 80);
             window.draw(text3);
 
             text4.setFont(font);
-            text4.setPosition(1150, 110);
+            text4.setPosition(1150, 80);
             text4.setString(std::to_string(max2));
             text4.setCharacterSize(24);
             window.draw(text4);
@@ -262,15 +262,21 @@ int main()
             }
             text6.setFont(font);
             text6.setString("speed:");
-            text6.setCharacterSize(20);
-            text6.setPosition(990, 500);
+            text6.setCharacterSize(24);
+            text6.setPosition(1000, 460);
             window.draw(text6);
 
             text7.setFont(font);
-            text7.setPosition(1088, 500);
+            text7.setPosition(1098, 460);
             text7.setString(std::to_string(spe));
-            text7.setCharacterSize(20);
+            text7.setCharacterSize(24);
             window.draw(text7);
+
+            text11.setFont(font);
+            text11.setString("Press 'X' for Level 1");
+            text11.setCharacterSize(24);
+            text11.setPosition(975, 500);
+            window.draw(text11);
 
             text5.setFont(font);
             text5.setString("Press 'E' for restart");

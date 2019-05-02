@@ -45,21 +45,6 @@ double Lev(int& num, int& max1, int& max2, int& spe, int& dir, float& delay)
 
         f.x = rand() % N;
         f.y = rand() % M;
-
-        p.x = rand() % N;
-        p.y = rand() % M;
-
-        p1.x = rand() % N;
-        p1.y = rand() % M;
-
-        p2.x = rand() % N;
-        p2.y = rand() % M;
-
-        p3.x = rand() % N;
-        p3.y = rand() % M;
-
-        p4.x = rand() % N;
-        p4.y = rand() % M;
     }
 
     if ((s[0].x == p.x) && (s[0].y == p.y)) {
@@ -69,6 +54,18 @@ double Lev(int& num, int& max1, int& max2, int& spe, int& dir, float& delay)
         delay = 0.15;
         p.x = rand() % N;
         p.y = rand() % M;
+
+        p1.x = rand() % N;
+        p1.y = rand() % M;
+
+        p2.x = rand() % N;
+        p2.y = rand() % M;
+
+        p3.x = rand() % N;
+        p3.y = rand() % M;
+
+        p4.x = rand() % N;
+        p4.y = rand() % M;
     }
 
     if ((s[0].x == p1.x) && (s[0].y == p1.y)) {
@@ -76,8 +73,20 @@ double Lev(int& num, int& max1, int& max2, int& spe, int& dir, float& delay)
         max2 = 0;
         spe = 1;
         delay = 0.15;
+        p.x = rand() % N;
+        p.y = rand() % M;
+
         p1.x = rand() % N;
         p1.y = rand() % M;
+
+        p2.x = rand() % N;
+        p2.y = rand() % M;
+
+        p3.x = rand() % N;
+        p3.y = rand() % M;
+
+        p4.x = rand() % N;
+        p4.y = rand() % M;
     }
 
     if ((s[0].x == p2.x) && (s[0].y == p2.y)) {
@@ -85,8 +94,20 @@ double Lev(int& num, int& max1, int& max2, int& spe, int& dir, float& delay)
         max2 = 0;
         spe = 1;
         delay = 0.15;
+        p.x = rand() % N;
+        p.y = rand() % M;
+
+        p1.x = rand() % N;
+        p1.y = rand() % M;
+
         p2.x = rand() % N;
         p2.y = rand() % M;
+
+        p3.x = rand() % N;
+        p3.y = rand() % M;
+
+        p4.x = rand() % N;
+        p4.y = rand() % M;
     }
 
     if ((s[0].x == p3.x) && (s[0].y == p3.y)) {
@@ -94,8 +115,20 @@ double Lev(int& num, int& max1, int& max2, int& spe, int& dir, float& delay)
         max2 = 0;
         spe = 1;
         delay = 0.15;
+        p.x = rand() % N;
+        p.y = rand() % M;
+
+        p1.x = rand() % N;
+        p1.y = rand() % M;
+
+        p2.x = rand() % N;
+        p2.y = rand() % M;
+
         p3.x = rand() % N;
         p3.y = rand() % M;
+
+        p4.x = rand() % N;
+        p4.y = rand() % M;
     }
 
     if ((s[0].x == p4.x) && (s[0].y == p4.y)) {
@@ -103,11 +136,23 @@ double Lev(int& num, int& max1, int& max2, int& spe, int& dir, float& delay)
         max2 = 0;
         spe = 1;
         delay = 0.15;
+        p.x = rand() % N;
+        p.y = rand() % M;
+
+        p1.x = rand() % N;
+        p1.y = rand() % M;
+
+        p2.x = rand() % N;
+        p2.y = rand() % M;
+
+        p3.x = rand() % N;
+        p3.y = rand() % M;
+
         p4.x = rand() % N;
         p4.y = rand() % M;
     }
 
-        if (s[0].x > N - 1)
+    if (s[0].x > N - 1)
         s[0].x = 0;
     if (s[0].x < 0)
         s[0].x = N - 1;
