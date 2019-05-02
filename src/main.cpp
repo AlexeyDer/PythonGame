@@ -1,83 +1,20 @@
 #include "binding.h"
+#include "fruct.h"
+#include "snake.h"
 #include <SFML/Graphics.hpp>
 #include <cstdlib>
 #include <time.h>
 using namespace sf;
 
-float delay = 0.15;
-int dir, num = 2, max1 = 0, spe = 1, max2 = 0;
-
-struct Snake {
-    int x;
-    int y;
-} s[100];
-
-struct Fruct {
-    int x;
-    int y;
-} f;
-
-void Tick()
-{
-    int N = 30, M = 20;
-
-    for (int i = num; i > 0; --i) {
-        s[i].x = s[i - 1].x;
-        s[i].y = s[i - 1].y;
-    }
-
-    if (dir == 0)
-        s[0].y += 1;
-    if (dir == 1)
-        s[0].x -= 1;
-    if (dir == 2)
-        s[0].x += 1;
-    if (dir == 3)
-        s[0].y -= 1;
-
-    if ((s[0].x == f.x) && (s[0].y == f.y)) {
-        num++;
-        if (num >= max1)
-            max1 = num;
-        if (num >= max2)
-            max2 = num;
-
-        if (num > 5) {
-            delay = 0.09;
-            spe = 2;
-        }
-        if (num > 10) {
-            delay = 0.06;
-            spe = 3;
-        }
-        if (num > 15) {
-            delay = 0.04;
-            spe = 4;
-        }
-
-        f.x = rand() % N;
-        f.y = rand() % M;
-    }
-
-    if (s[0].x > N - 1)
-        s[0].x = 0;
-    if (s[0].x < 0)
-        s[0].x = N - 1;
-    if (s[0].y > M - 1)
-        s[0].y = 0;
-    if (s[0].y < 0)
-        s[0].y = M - 1;
-
-    for (int i = 1; i < num; i++) {
-        if (s[0].x == s[i].x && s[0].y == s[i].y) {
-            num = i;
-        }
-    }
-}
+struct Snake s[100];
+struct Fruct f;
 
 int main()
 {
     srand(time(NULL));
+
+    float delay = 0.15;
+    int dir, num = 1, max1 = 0, spe = 1, max2 = 0;
 
     int N = 30, M = 20;
     int size = 32;
@@ -123,25 +60,25 @@ int main()
             }
         }
 
-        if (Keyboard::isKeyPressed(Keyboard::Left) && R == 1) {
+        if (Keyboard::isKeyPressed(Keyboard::A) && R == 1) {
             dir = 1;
             L = 0;
             U = 1;
             D = 1;
         }
-        if (Keyboard::isKeyPressed(Keyboard::Right) && L == 1) {
+        if (Keyboard::isKeyPressed(Keyboard::D) && L == 1) {
             dir = 2;
             R = 0;
             U = 1;
             D = 1;
         }
-        if (Keyboard::isKeyPressed(Keyboard::Up) && D == 1) {
+        if (Keyboard::isKeyPressed(Keyboard::W) && D == 1) {
             dir = 3;
             U = 0;
             L = 1;
             R = 1;
         }
-        if (Keyboard::isKeyPressed(Keyboard::Down) && U == 1) {
+        if (Keyboard::isKeyPressed(Keyboard::S) && U == 1) {
             dir = 0;
             D = 0;
             L = 1;
@@ -158,7 +95,7 @@ int main()
 
         if (timer > delay) {
             timer = 0;
-            Tick();
+            Tick(num, max1, max2, spe, dir, delay);
         }
 
         ////// draw  ///////
@@ -167,8 +104,7 @@ int main()
 
         Font font;
         font.loadFromFile("images/5555.ttf");
-        if (!font.loadFromFile(
-                    "images/5555.ttf")) {
+        if (!font.loadFromFile("images/5555.ttf")) {
             return 0;
         }
         Text text, text0, text2, text3, text4, text5, text6, text7, text8,
@@ -244,14 +180,20 @@ int main()
             text6.setFont(font);
             text6.setString("speed:");
             text6.setCharacterSize(20);
-            text6.setPosition(990, 530);
+            text6.setPosition(990, 500);
             window.draw(text6);
 
             text7.setFont(font);
-            text7.setPosition(1088, 530);
+            text7.setPosition(1088, 500);
             text7.setString(std::to_string(spe));
             text7.setCharacterSize(20);
             window.draw(text7);
+
+            text5.setFont(font);
+            text5.setString("Press 'E' for restart");
+            text5.setCharacterSize(24);
+            text5.setPosition(975, 540);
+            window.draw(text5);
 
             text5.setFont(font);
             text5.setString("Press 'Q' for exit");
