@@ -290,7 +290,7 @@ int main()
             return 0;
         }
         Text text, text0, text2, text3, text4, text5, text6, text7, text8,
-                text9, text10, text11, text12;
+                text9, text10, text11, text12, text13;
 
         if (num < max2) {
             text3.setFont(font);
@@ -320,6 +320,20 @@ int main()
 
                 text12.setFont(font);
                 text12.setString("Press 'Z' out Level1");
+                text12.setCharacterSize(24);
+                text12.setPosition(975, 500);
+                window.draw(text12);
+            }
+
+            if (foo == 2) {
+                text10.setFont(font);
+                text10.setString("Level   2");
+                text10.setCharacterSize(50);
+                text10.setPosition(990, 400);
+                window.draw(text10);
+
+                text12.setFont(font);
+                text12.setString("Press 'Z' out Level2");
                 text12.setCharacterSize(24);
                 text12.setPosition(975, 500);
                 window.draw(text12);
@@ -388,14 +402,28 @@ int main()
                 text12.setPosition(975, 500);
                 window.draw(text12);
             }
+
+            if (foo == 2) {
+                text10.setFont(font);
+                text10.setString("Level   2");
+                text10.setCharacterSize(50);
+                text10.setPosition(990, 360);
+                window.draw(text10);
+
+                text12.setFont(font);
+                text12.setString("Press 'Z' out Level2");
+                text12.setCharacterSize(24);
+                text12.setPosition(975, 500);
+                window.draw(text12);
+            }
             text6.setFont(font);
             text6.setString("speed:");
             text6.setCharacterSize(24);
-            text6.setPosition(1030, 460);
+            text6.setPosition(1030, 420);
             window.draw(text6);
 
             text7.setFont(font);
-            text7.setPosition(1128, 460);
+            text7.setPosition(1128, 420);
             text7.setString(std::to_string(spe));
             text7.setCharacterSize(24);
             window.draw(text7);
@@ -406,6 +434,12 @@ int main()
                 text11.setCharacterSize(24);
                 text11.setPosition(975, 500);
                 window.draw(text11);
+
+                text13.setFont(font);
+                text13.setString("Press 'C' exit Level2");
+                text13.setCharacterSize(24);
+                text13.setPosition(975, 460);
+                window.draw(text13);
             }
 
             text5.setFont(font);
