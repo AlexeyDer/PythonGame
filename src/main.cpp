@@ -133,12 +133,13 @@ int main()
             p3.x = rand() % N;
             p3.y = rand() % M;
 
-            p3.x = rand() % N;
-            p3.y = rand() % M;
+            p4.x = rand() % N;
+            p4.y = rand() % M;
         }
 
         if (Keyboard::isKeyPressed(Keyboard::Z)) {
             foo = 0;
+
             p.x = -1;
             p.y = -1;
 
