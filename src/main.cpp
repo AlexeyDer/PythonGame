@@ -115,7 +115,7 @@ int main()
             delay = 0.15;
         }
 
-        if (Keyboard::isKeyPressed(Keyboard::O)) {
+        if (Keyboard::isKeyPressed(Keyboard::X)) {
             foo = 1;
             p.x = rand() % N;
             p.y = rand() % M;
@@ -131,6 +131,24 @@ int main()
 
             p3.x = rand() % N;
             p3.y = rand() % M;
+        }
+
+        if (Keyboard::isKeyPressed(Keyboard::Z)) {
+            foo = 0;
+            p.x = -1;
+            p.y = -1;
+
+            p2.x = -1;
+            p2.y = -1;
+
+            p3.x = -1;
+            p3.y = -1;
+
+            p4.x = -1;
+            p4.y = -1;
+
+            p1.x = -1;
+            p1.y = -1;
         }
 
         if (foo == 0) {
@@ -177,6 +195,14 @@ int main()
             text8.setPosition(1025, 180);
             window.draw(text8);
 
+            if (foo == 1) {
+                text10.setFont(font);
+                text10.setString("Level   1");
+                text10.setCharacterSize(50);
+                text10.setPosition(990, 400);
+                window.draw(text10);
+            }
+
             text9.setFont(font);
             text9.setString("Lose");
             text9.setCharacterSize(65);
@@ -195,68 +221,7 @@ int main()
             text5.setPosition(990, 580);
             window.draw(text5);
         }
-        /*
-        if (foo == 1) {
-            text0.setFont(font);
-            text0.setString("Python");
-            text0.setCharacterSize(65);
-            text0.setPosition(980, 10);
-            window.draw(text0);
 
-            text.setFont(font);
-            text.setString("Your Score:");
-            text.setCharacterSize(24);
-            text.setPosition(990, 110);
-            window.draw(text);
-
-            text2.setFont(font);
-            text2.setPosition(1150, 110);
-            text2.setString(std::to_string(num));
-            text2.setCharacterSize(24);
-            window.draw(text2);
-
-            text3.setFont(font);
-            text3.setString("Your Record:");
-            text3.setCharacterSize(24);
-            text3.setPosition(990, 170);
-            window.draw(text3);
-
-            text10.setFont(font);
-            text10.setString("Level 1");
-            text10.setCharacterSize(24);
-            text10.setPosition(990, 450);
-            window.draw(text10);
-
-            text4.setFont(font);
-            text4.setPosition(1150, 170);
-            text4.setString(std::to_string(max1));
-            text4.setCharacterSize(24);
-            window.draw(text4);
-
-            text6.setFont(font);
-            text6.setString("speed:");
-            text6.setCharacterSize(20);
-            text6.setPosition(990, 500);
-            window.draw(text6);
-
-            text7.setFont(font);
-            text7.setPosition(1088, 500);
-            text7.setString(std::to_string(spe));
-            text7.setCharacterSize(20);
-            window.draw(text7);
-
-            text5.setFont(font);
-            text5.setString("Press 'E' for restart");
-            text5.setCharacterSize(24);
-            text5.setPosition(975, 540);
-            window.draw(text5);
-
-            text5.setFont(font);
-            text5.setString("Press 'Q' for exit");
-            text5.setCharacterSize(24);
-            text5.setPosition(990, 580);
-            window.draw(text5);
-        } */
         else {
             text0.setFont(font);
             text0.setString("Python");
@@ -288,6 +253,13 @@ int main()
             text4.setCharacterSize(24);
             window.draw(text4);
 
+            if (foo == 1) {
+                text10.setFont(font);
+                text10.setString("Level   1");
+                text10.setCharacterSize(50);
+                text10.setPosition(990, 400);
+                window.draw(text10);
+            }
             text6.setFont(font);
             text6.setString("speed:");
             text6.setCharacterSize(20);
