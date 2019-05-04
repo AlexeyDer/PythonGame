@@ -1,7 +1,7 @@
-CFLAGS = -Wall -Werror 
+CFLAGS = -Wall -Werror
 OBJ = g++ -c $< -o $@ $(CFLAGS)
 
-LIBS = -L/SFML/lib/release/ -L/SFML/include/
+LIBS = -LSFML/lib/release/ 
 LDLIBS = -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
 
 .PHONY: clean all
@@ -24,7 +24,7 @@ build/lev2.o: src/lev2.cpp
 	$(OBJ)
 
 build/main.o: src/main.cpp 
-	$(OBJ)
+	g++ $(CFLAG) -I SFML/include -I src -c src/main.cpp -o build/main.o
 
 bin: 
 	mkdir bin
