@@ -6,7 +6,7 @@ LIBS = -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
 
 EXECUTABLE = bin/main.exe 
 
-all: 
+all: $(EXECUTABLE)
 	$(EXECUTABLE)
 
 $(EXECUTABLE):  build/main.o build/binding.o build/tick.o build/lev.o build/lev2.o
