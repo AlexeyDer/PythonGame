@@ -5,7 +5,9 @@
 #include "snake.h"
 #include <SFML/Graphics.hpp>
 #include <cstdlib>
+#include <string>
 #include <time.h>
+
 using namespace sf;
 using namespace std;
 
