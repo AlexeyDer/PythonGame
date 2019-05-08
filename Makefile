@@ -1,14 +1,13 @@
-CFLAGS = -Wall -Werror -fno-tree-vectorize
+CFLAGS = -Wall -Werror 
 OBJ = g++ -c $< -o $@ $(CFLAGS)
 LIBS = -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
 
 .PHONY: all clean
 
-EXECUTABLE = bin/main.exe 
+EXECUTABLE = bin/main.exe
 
-all: $(EXECUTABLE)
-	$(EXECUTABLE)
-
+all: $(EXECUTABLE) start.sh
+	
 $(EXECUTABLE):  build/main.o build/binding.o build/tick.o build/lev.o build/lev2.o
 	g++ $^ -o $@ $(CFLAGS) $(LIBS) 
 
