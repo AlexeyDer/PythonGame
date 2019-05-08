@@ -42,6 +42,7 @@ int main()
     int h = size * M;
     int L = 1, R = 1, U = 1, D = 1;
     int foo = 0;
+    String st = "";
 
     RenderWindow window(
             VideoMode(w + 240, h),
@@ -304,7 +305,7 @@ int main()
 
             text4.setFont(font);
             text4.setPosition(1150, 80);
-            text4.setString(to_string(max2));
+            text4.setString((st + ((char)(max2 + 48))));
             text4.setCharacterSize(24);
             window.draw(text4);
 
@@ -376,7 +377,7 @@ int main()
 
             text2.setFont(font);
             text2.setPosition(1150, 110);
-            text2.setString(to_string(num));
+            text2.setString(((st + ((char)(num + 48)))));
             text2.setCharacterSize(24);
             window.draw(text2);
 
@@ -388,7 +389,7 @@ int main()
 
             text4.setFont(font);
             text4.setPosition(1150, 170);
-            text4.setString(to_string(max1));
+            text4.setString((st + ((char)(max1 + 48))));
             text4.setCharacterSize(24);
             window.draw(text4);
 
@@ -427,7 +428,7 @@ int main()
 
             text7.setFont(font);
             text7.setPosition(1128, 420);
-            text7.setString(to_string(spe));
+            text7.setString((st + ((char)(spe + 48))));
             text7.setCharacterSize(24);
             window.draw(text7);
 
