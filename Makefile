@@ -1,4 +1,4 @@
-CFLAGS = -Wall -Werror 
+CFLAGS = -Wall -Werror -fno-tree-vectorize
 OBJ = g++ -c $< -o $@ $(CFLAGS)
 LIBS = -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
 
