@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <time.h>
 using namespace sf;
+using namespace std;
 
 struct Snake s[100];
 struct Fruct f;
@@ -301,7 +302,7 @@ int main()
 
             text4.setFont(font);
             text4.setPosition(1150, 80);
-            text4.setString(std::to_string(max2));
+            text4.setString(to_string(max2));
             text4.setCharacterSize(24);
             window.draw(text4);
 
@@ -373,7 +374,7 @@ int main()
 
             text2.setFont(font);
             text2.setPosition(1150, 110);
-            text2.setString(std::to_string(num));
+            text2.setString(to_string(num));
             text2.setCharacterSize(24);
             window.draw(text2);
 
@@ -385,7 +386,7 @@ int main()
 
             text4.setFont(font);
             text4.setPosition(1150, 170);
-            text4.setString(std::to_string(max1));
+            text4.setString(to_string(max1));
             text4.setCharacterSize(24);
             window.draw(text4);
 
@@ -424,7 +425,7 @@ int main()
 
             text7.setFont(font);
             text7.setPosition(1128, 420);
-            text7.setString(std::to_string(spe));
+            text7.setString(to_string(spe));
             text7.setCharacterSize(24);
             window.draw(text7);
 
