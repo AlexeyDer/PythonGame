@@ -2,6 +2,7 @@ language: cpp
 compiler: g++
 dist: xenial
 script:
+  - sudo apt-get install libsfml-dev
   - make
   - git ls-files src/ | xargs clang-format -i && git diff --exit-code
-  - sudo apt-get install libsfml-dev
+
