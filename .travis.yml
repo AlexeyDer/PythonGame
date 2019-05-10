@@ -5,6 +5,6 @@ compiler: g++
 
 script:
   - sudo apt-get install libsfml-dev
-  - ./start.sh
+  - make
   - git ls-files src/ | xargs clang-format -i && git diff --exit-code
 
