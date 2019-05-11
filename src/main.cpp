@@ -5,8 +5,6 @@
 #include "level2.h"
 #include "snake.h"
 #include <SFML/Graphics.hpp>
-#include <cstdlib>
-#include <string>
 #include <time.h>
 
 using namespace sf;
@@ -315,7 +313,7 @@ int main()
 
             text4.setFont(font);
             text4.setPosition(1150, 80);
-            text4.setString((st + ((char)(max2 + 48))));
+            text4.setString((To_string(max2)));
             text4.setCharacterSize(24);
             window.draw(text4);
 
@@ -387,7 +385,7 @@ int main()
 
             text2.setFont(font);
             text2.setPosition(1150, 110);
-            text2.setString(((st + ((char)(num + 48)))));
+            text2.setString(((To_string(num))));
             text2.setCharacterSize(24);
             window.draw(text2);
 
@@ -399,7 +397,7 @@ int main()
 
             text4.setFont(font);
             text4.setPosition(1150, 170);
-            text4.setString((st + ((char)(max1 + 48))));
+            text4.setString((To_string(max1)));
             text4.setCharacterSize(24);
             window.draw(text4);
 
@@ -438,7 +436,7 @@ int main()
 
             text7.setFont(font);
             text7.setPosition(1128, 420);
-            text7.setString((st + ((char)(spe + 48))));
+            text7.setString((st + (To_string(spe))));
             text7.setCharacterSize(24);
             window.draw(text7);
 
