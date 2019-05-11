@@ -282,13 +282,13 @@ int main()
         if (foo == 1) {
             if (timer > delay) {
                 timer = 0;
-                Lev(num, max1, max2, spe, dir, delay);
+                Lev(num, max1, max2, spe, dir, delay, iter);
             }
         }
         if (foo == 2) {
             if (timer > delay) {
                 timer = 0;
-                Lev2(num, max1, max2, spe, dir, delay);
+                Lev2(num, max1, max2, spe, dir, delay, iter);
             }
         }
 
