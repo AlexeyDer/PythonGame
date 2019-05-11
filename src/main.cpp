@@ -1,11 +1,10 @@
+#include "SuperFrute.hpp"
 #include "binding.h"
 #include "fruct.h"
 #include "level1.h"
 #include "level2.h"
 #include "snake.h"
 #include <SFML/Graphics.hpp>
-#include <cstdlib>
-#include <string>
 #include <time.h>
 
 using namespace sf;
@@ -28,6 +27,7 @@ struct Level2 t6;
 struct Level2 t7;
 struct Level2 t8;
 struct Level2 t9;
+struct Sfruct suf;
 
 int main()
 {
@@ -42,6 +42,7 @@ int main()
     int h = size * M;
     int L = 1, R = 1, U = 1, D = 1;
     int foo = 0;
+    int iter = 0;
     String st = "";
 
     RenderWindow window(
@@ -49,11 +50,12 @@ int main()
             "Snake Game",
             Style::None); // Style::Fullscreen  //Style::None
 
-    Texture tex1, tex2, tex3, tex4;
+    Texture tex1, tex2, tex3, tex4, tex5;
     tex1.loadFromFile("images/77.png");
     tex2.loadFromFile("images/23.png");
     tex3.loadFromFile("images/666.png");
     tex4.loadFromFile("images/44.png");
+    tex5.loadFromFile("images/farm.png");
     if (!tex1.loadFromFile("images/77.png"))
         return 0;
     if (!tex2.loadFromFile("images/23.png"))
@@ -62,17 +64,23 @@ int main()
         return 0;
     if (!tex4.loadFromFile("images/44.png"))
         return 0;
+    if (!tex5.loadFromFile("images/farm.png"))
+        return 0;
 
     Sprite sprite1(tex1);
     Sprite sprite2(tex2);
     Sprite sprite3(tex3);
     Sprite sprite4(tex4);
+    Sprite sprite5(tex5);
 
     Clock clock;
     float timer = 0;
 
     f.x = rand() % N;
     f.y = rand() % M;
+
+    suf.x = -1;
+    suf.y = -1;
 
     p.x = -1;
     p.y = -1;
@@ -268,19 +276,19 @@ int main()
         if (foo == 0) {
             if (timer > delay) {
                 timer = 0;
-                Tick(num, max1, max2, spe, dir, delay);
+                Tick(num, max1, max2, spe, dir, delay, iter);
             }
         }
         if (foo == 1) {
             if (timer > delay) {
                 timer = 0;
-                Lev(num, max1, max2, spe, dir, delay);
+                Lev(num, max1, max2, spe, dir, delay, iter);
             }
         }
         if (foo == 2) {
             if (timer > delay) {
                 timer = 0;
-                Lev2(num, max1, max2, spe, dir, delay);
+                Lev2(num, max1, max2, spe, dir, delay, iter);
             }
         }
 
@@ -305,7 +313,7 @@ int main()
 
             text4.setFont(font);
             text4.setPosition(1150, 80);
-            text4.setString((st + ((char)(max2 + 48))));
+            text4.setString((To_string(max2)));
             text4.setCharacterSize(24);
             window.draw(text4);
 
@@ -377,7 +385,7 @@ int main()
 
             text2.setFont(font);
             text2.setPosition(1150, 110);
-            text2.setString(((st + ((char)(num + 48)))));
+            text2.setString(((To_string(num))));
             text2.setCharacterSize(24);
             window.draw(text2);
 
@@ -389,7 +397,7 @@ int main()
 
             text4.setFont(font);
             text4.setPosition(1150, 170);
-            text4.setString((st + ((char)(max1 + 48))));
+            text4.setString((To_string(max1)));
             text4.setCharacterSize(24);
             window.draw(text4);
 
@@ -428,7 +436,7 @@ int main()
 
             text7.setFont(font);
             text7.setPosition(1128, 420);
-            text7.setString((st + ((char)(spe + 48))));
+            text7.setString((st + (To_string(spe))));
             text7.setCharacterSize(24);
             window.draw(text7);
 
@@ -518,6 +526,9 @@ int main()
 
         sprite4.setPosition(t9.x * size, t9.y * size);
         window.draw(sprite4);
+
+        sprite5.setPosition(suf.x * size, suf.y * size);
+        window.draw(sprite5);
 
         window.display();
     }

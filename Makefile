@@ -11,10 +11,10 @@ all: $(EXECUTABLE) start.sh
 $(EXECUTABLE):  build/main.o build/binding.o build/tick.o build/lev.o build/lev2.o
 	g++ $^ -o $@ $(CFLAGS) $(LIBS) 
 
-build/binding.o: src/binding.cpp src/binding.h
+build/binding.o: src/binding.cpp src/binding.h 
 	$(OBJ)
 
-build/tick.o: src/tick.cpp 
+build/tick.o: src/tick.cpp src/SuperFrute.hpp
 	$(OBJ)
 
 build/lev.o: src/lev.cpp 
@@ -23,7 +23,7 @@ build/lev.o: src/lev.cpp
 build/lev2.o: src/lev2.cpp 
 	$(OBJ)
 
-build/main.o: src/main.cpp 
+build/main.o: src/main.cpp src/SuperFrute.hpp
 	$(OBJ) 
 
 clean:
