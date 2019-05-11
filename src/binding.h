@@ -15,8 +15,23 @@ Tick(int& num,
      int& dir,
      float& delay,
      int& iter);
-double Lev(int& num, int& max1, int& max2, int& spe, int& dir, float& delay);
-double Lev2(int& num, int& max1, int& max2, int& spe, int& dir, float& delay);
+double
+Lev(int& num,
+    int& max1,
+    int& max2,
+    int& spe,
+    int& dir,
+    float& delay,
+    int& iter);
+
+double
+Lev2(int& num,
+     int& max1,
+     int& max2,
+     int& spe,
+     int& dir,
+     float& delay,
+     int& iter);
 
 template <typename T>
 std::string To_string(T value)
