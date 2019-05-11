@@ -54,8 +54,7 @@ Tick(int& num,
         f.y = rand() % M;
 
         iter++;
-        if (iter == 5 || iter == 10 || iter == 15 || iter == 20 || iter == 25
-            || iter == 30 || iter == 35) {
+        if (iter != 1 && (iter % 5 == 0)) {
             suf.x = rand() % N;
             suf.y = rand() % M;
         }
