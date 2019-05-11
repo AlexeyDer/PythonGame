@@ -12,7 +12,7 @@ sudo apt-get install libsfml-dev
 ```
 ## Make and run project
 ```
-git clone https://github.com/AlexeyDer/ToDoList.git
+git clone https://github.com/AlexeyDer/PythonGame.git
 ./start.sh
 ```
 
