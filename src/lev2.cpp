@@ -1,10 +1,13 @@
 #include "SuperFrute.hpp"
 #include "binding.h"
+#include "ctime"
 #include "fruct.h"
 #include "level2.h"
 #include "snake.h"
 
 using namespace std;
+
+extern int timer;
 
 double
 Lev2(int& num,
@@ -56,6 +59,7 @@ Lev2(int& num,
 
         iter++;
         if (iter != 1 && (iter % 5 == 0)) {
+            ++timer;
             suf.x = rand() % N;
             suf.y = rand() % M;
         }
@@ -456,6 +460,14 @@ Lev2(int& num,
         if (s[0].x == s[i].x && s[0].y == s[i].y) {
             num = i;
         }
+    }
+
+    if (timer > 0)
+        timer++;
+
+    if (timer == 50) {
+        suf.x = -1, suf.y = -1;
+        timer = 0;
     }
 
     return max1;
