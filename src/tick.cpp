@@ -1,9 +1,12 @@
 #include "SuperFrute.hpp"
 #include "binding.h"
+#include "ctime"
 #include "fruct.h"
 #include "snake.h"
 
 using namespace std;
+
+int timer = 0;
 
 double
 Tick(int& num,
@@ -55,6 +58,7 @@ Tick(int& num,
 
         iter++;
         if (iter != 1 && (iter % 5 == 0)) {
+            ++timer;
             suf.x = rand() % N;
             suf.y = rand() % M;
         }
@@ -95,6 +99,14 @@ Tick(int& num,
         if (s[0].x == s[i].x && s[0].y == s[i].y) {
             num = i;
         }
+    }
+
+    if (timer > 0)
+        timer++;
+
+    if (timer == 50) {
+        suf.x = -1, suf.y = -1;
+        timer = 0;
     }
 
     return max1;
