@@ -4,28 +4,26 @@ LIBS = -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
 
 .PHONY: all clean
 
+SOURCES = $(wildcard $(addprefix src/, *.cpp))
+OBJECTS = $(patsubst $(addprefix src/, %.h), $(addprefix build/, %.o), $(SOURCES))
 EXECUTABLE = bin/main.exe
 
-all: $(EXECUTABLE) start.sh
+TEST_SOURCES = $(wildcard $(addprefix test/, *.cpp))
+TEST_OBJECTS = $(patsubst $(addprefix test/, %.h),$(addprefix build/, %.o),$(wildcard $(addprefix test/, *.h))) $(patsubst $(addprefix test/, %.cpp),$(addprefix build/, %.o),$(wildcard $(addprefix test/, *.cpp)))
+TEST_EXECUTABLE = bin/test.out
+
+all: $(EXECUTABLE)
 	
-$(EXECUTABLE):  build/main.o build/binding.o build/tick.o build/lev.o build/lev2.o
+$(EXECUTABLE):  $(OBJECTS)
 	g++ $^ -o $@ $(CFLAGS) $(LIBS) 
 
-build/binding.o: src/binding.cpp src/binding.h 
+build/%.o: src/%.cpp
 	$(OBJ)
-
-build/tick.o: src/tick.cpp src/SuperFrute.hpp
-	$(OBJ)
-
-build/lev.o: src/lev.cpp 
-	$(OBJ)
-
-build/lev2.o: src/lev2.cpp 
-	$(OBJ)
-
-build/main.o: src/main.cpp src/SuperFrute.hpp
-	$(OBJ) 
 
 clean:
-	rm build/*.o
-	rm bin/*.exe
+	rm -f $(EXECUTABLE) $(OBJECTS)
+
+
+.PHONY: test
+
+test: 
