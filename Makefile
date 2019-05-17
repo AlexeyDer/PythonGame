@@ -21,7 +21,7 @@ build/%.o: src/%.cpp
 	$(OBJ)
 
 clean:
-	rm -f $(EXECUTABLE) $(OBJECTS)
+	rm -f $(EXECUTABLE)  build/*.o
 
 
 .PHONY: test
