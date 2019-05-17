@@ -1,5 +1,5 @@
-#ifndef SUPERFRUTE_HPP
-#define SUPERFRUTE_HPP
+#ifndef SUPERFRUTE_H
+#define SUPERFRUTE_H
 
 struct Sfruct {
     int x;

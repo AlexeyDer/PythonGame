@@ -3,6 +3,7 @@
 #endif
 
 #define _CXXTEST_HAVE_STD
+#include "MyTests.h"
 #include <cxxtest/ErrorPrinter.h>
 #include <cxxtest/RealDescriptions.h>
 #include <cxxtest/TestListener.h>
