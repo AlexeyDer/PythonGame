@@ -4,8 +4,11 @@ language: cpp
 compiler: g++
 
 script:
+  - sudo apt-get install libgtest-dev
+  - sudo apt-get install cmake
+
+script:
   - sudo apt-get install libsfml-dev
-  - sudo apt-get install cxxtest
   - make
   - git ls-files src/ | xargs clang-format -i && git diff --exit-code
 
