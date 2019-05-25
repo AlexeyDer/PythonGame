@@ -1,10 +1,5 @@
-#include "SuperFrute.h"
 #include "binding.h"
 #include "ctime"
-#include "fruct.h"
-#include "snake.h"
-
-using namespace std;
 
 int timer = 0;
 

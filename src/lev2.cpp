@@ -1,11 +1,5 @@
-#include "SuperFrute.h"
 #include "binding.h"
 #include "ctime"
-#include "fruct.h"
-#include "level2.h"
-#include "snake.h"
-
-using namespace std;
 
 extern int timer;
 

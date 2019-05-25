@@ -1,14 +1,7 @@
-#include "SuperFrute.h"
 #include "binding.h"
-#include "fruct.h"
-#include "level1.h"
-#include "level2.h"
-#include "snake.h"
 #include <SFML/Graphics.hpp>
 #include <time.h>
-
 using namespace sf;
-using namespace std;
 
 struct Snake s[100];
 struct Fruct f;
@@ -146,6 +139,7 @@ int main()
             U = 1;
             D = 1;
         }
+
         if (Keyboard::isKeyPressed(Keyboard::Right) && L == 1) {
             dir = 2;
             R = 0;
@@ -166,6 +160,7 @@ int main()
         }
         if (Keyboard::isKeyPressed(Keyboard::Q))
             return 0;
+
         if (Keyboard::isKeyPressed(Keyboard::E)) {
             num = 1;
             max2 = 0;
