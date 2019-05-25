@@ -1,10 +1,12 @@
 #ifndef BINDING_H
 #define BINDING_H
 
+#include <SFML/Graphics.hpp>
 #include <cstdlib>
 #include <iostream>
 #include <sstream>
 
+using namespace sf;
 using namespace std;
 
 struct Fruct {
@@ -92,5 +94,12 @@ std::string To_string(T value)
     // convert the string stream into a string and return
     return os.str();
 }
-
+int KeyBoardPressRight(
+        Keyboard::Key button, int& R, int& dir, int& L, int& U, int& D);
+int KeyBoardPressLeft(
+        Keyboard::Key button, int& R, int& dir, int& L, int& U, int& D);
+int KeyBoardPressUp(
+        Keyboard::Key button, int& R, int& dir, int& L, int& U, int& D);
+int KeyBoardPressDown(
+        Keyboard::Key button, int& R, int& dir, int& L, int& U, int& D);
 #endif // BINDING_H
