@@ -3,11 +3,13 @@
 int KeyBoardPressLeft(
         Keyboard::Key button, int& R, int& dir, int& L, int& U, int& D)
 {
-    if (Keyboard::isKeyPressed(button) && R == 1) {
-        dir = 1;
-        L = 0;
-        U = 1;
-        D = 1;
+    if ((button == Keyboard::Left) && (R == 1)) {
+        if (Keyboard::isKeyPressed(button)) {
+            dir = 1;
+            L = 0;
+            U = 1;
+            D = 1;
+        }
         return 0;
     }
     return 1;
