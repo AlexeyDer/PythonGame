@@ -4,9 +4,14 @@ language: cpp
 compiler: g++
 
 script:
-  - sudo apt-get install libgtest-dev
   - sudo apt-get install libsfml-dev
   - make
   - git ls-files src/ | xargs clang-format -i && git diff --exit-code
+  - sudo apt-get install libgtest-dev
+  - sudo apt-get install cmake
+  - cd /usr/src/gtest
+  - sudo cmake CMakeLists.txt
+  - sudo make
+  - sudo cp *.a /usr/lib
   - chmod 777 buildTest.sh
   - ./buildTest.sh
