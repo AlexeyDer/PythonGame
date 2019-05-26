@@ -14,4 +14,5 @@ script:
   - sudo make
   - sudo cp *.a /usr/lib
   - cd -
-  - make test
+  - chmod 777 buildTest.sh
+  - ./buildTest.sh
