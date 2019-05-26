@@ -12,5 +12,5 @@ script:
   - git ls-files src/ | xargs clang-format -i && git diff --exit-code
 
 script:
-  - ./buildTest.sh
+  - make test
 
