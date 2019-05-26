@@ -13,4 +13,5 @@ script:
   - sudo cmake CMakeLists.txt
   - sudo make
   - sudo cp *.a /usr/lib
+  - cd -
   - make test
