@@ -6,11 +6,6 @@ compiler: g++
 script:
   - sudo apt-get install libgtest-dev
   - sudo apt-get install libsfml-dev
-
-script:
   - make
   - git ls-files src/ | xargs clang-format -i && git diff --exit-code
-
-script:
   - make test
-
