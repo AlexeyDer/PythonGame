@@ -27,7 +27,6 @@ clean:
 .PHONY: test
 
 test: $(TEST_EXECUTABLE)
-		$(TEST_EXECUTABLE)
 
 $(TEST_EXECUTABLE): $(TEST_OBJECTS)
 	$(CC) $(TEST_OBJECTS) $(CFLAGS) $(LIBS_TEST) $(LIBS)  -o $@
