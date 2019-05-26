@@ -54,6 +54,32 @@ TEST(KeyBoardPress, Up_3)
     ASSERT_EQ(res, 1);
 }
 
+TEST(KeyBoardPress, Right_1)
+{
+    int a, b;
+    a = 1;
+    b = 0;
+    int res = KeyBoardPressRight(Keyboard::Right, b, b, a, b, b);
+    ASSERT_EQ(res, 0);
+}
+
+TEST(KeyBoardPress, Right_2)
+{
+    int a, b;
+    a = b = 1;
+    int res = KeyBoardPressRight(Keyboard::Down, b, b, a, b, b);
+    ASSERT_EQ(res, 1);
+}
+
+TEST(KeyBoardPress, Right_3)
+{
+    int a, b;
+    a = 0;
+    b = 1;
+    int res = KeyBoardPressRight(Keyboard::Right, b, b, a, b, b);
+    ASSERT_EQ(res, 1);
+}
+
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
