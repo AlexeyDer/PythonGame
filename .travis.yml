@@ -13,5 +13,4 @@ script:
   - sudo cmake CMakeLists.txt
   - sudo make
   - sudo cp *.a /usr/lib
-  - chmod 777 buildTest.sh
-  - ./buildTest.sh
+  - make test
