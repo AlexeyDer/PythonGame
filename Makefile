@@ -1,4 +1,4 @@
-CFLAGS = -Wall -Werror -c
+CFLAGS = -Wall -Werror
 OBJ = g++ -c $< -o $@ $(CFLAGS)
 LIBS = -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
 LIBS_TEST = -lgtest -lgtest_main
