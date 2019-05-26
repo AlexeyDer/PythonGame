@@ -5,10 +5,12 @@ compiler: g++
 
 script:
   - sudo apt-get install libgtest-dev
-  - sudo apt-get install cmake
+  - sudo apt-get install libsfml-dev
 
 script:
-  - sudo apt-get install libsfml-dev
   - make
   - git ls-files src/ | xargs clang-format -i && git diff --exit-code
+
+script:
+  - ./buildTest.sh
 
