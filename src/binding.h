@@ -104,5 +104,6 @@ int KeyBoardPressDown(
         Keyboard::Key button, int& R, int& dir, int& L, int& U, int& D);
 int TurnSnake(int dir);
 int TeleportationSnake(int& count, int N);
+int SuperFructSpawn(int iter, int& x, int& y, int N, int M, int& timer);
 
 #endif // BINDING_H
