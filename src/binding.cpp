@@ -118,6 +118,7 @@ int SuperFructSpawn(int iter, int& x, int& y, int N, int M, int& timer)
         timer++;
         x = rand() % N;
         y = rand() % M;
+        return 0;
     }
     return 1;
 }
