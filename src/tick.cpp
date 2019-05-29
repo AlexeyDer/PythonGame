@@ -45,11 +45,7 @@ Tick(int& num,
         f.y = rand() % M;
 
         iter++;
-        if (iter != 1 && (iter % 5 == 0)) {
-            ++timer;
-            suf.x = rand() % N;
-            suf.y = rand() % M;
-        }
+        SuperFructSpawn(iter, suf.x, suf.y, N, M, timer);
     }
 
     if ((s[0].x == suf.x) && (s[0].y == suf.y)) {
@@ -58,6 +54,7 @@ Tick(int& num,
             max1 = num;
         if (num >= max2)
             max2 = num;
+
         if (num > 5) {
             delay = 0.09;
             spe = 2;
