@@ -1,4 +1,22 @@
 #include "binding.h"
+struct Snake s[100];
+struct Fruct f;
+struct Level1 p;
+struct Level1 p1;
+struct Level1 p2;
+struct Level1 p3;
+struct Level1 p4;
+struct Level2 t;
+struct Level2 t1;
+struct Level2 t2;
+struct Level2 t3;
+struct Level2 t4;
+struct Level2 t5;
+struct Level2 t6;
+struct Level2 t7;
+struct Level2 t8;
+struct Level2 t9;
+struct Sfruct suf;
 
 int KeyBoardPressLeft(
         Keyboard::Key button, int& R, int& dir, int& L, int& U, int& D)
@@ -58,4 +76,25 @@ int KeyBoardPressDown(
         return 0;
     }
     return 1;
+}
+
+int TurnSnake(int dir)
+{
+    if (dir == 0) {
+        s[0].y += 1;
+        return 0;
+    }
+    if (dir == 1) {
+        s[0].x -= 1;
+        return 1;
+    }
+    if (dir == 2) {
+        s[0].x += 1;
+        return 2;
+    }
+    if (dir == 3) {
+        s[0].y -= 1;
+        return 3;
+    }
+    return -1;
 }
