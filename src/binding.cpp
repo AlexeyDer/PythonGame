@@ -111,3 +111,13 @@ int TeleportationSnake(int& count, int N)
     }
     return 1;
 }
+
+int SuperFructSpawn(int iter, int& x, int& y, int N, int M, int& timer)
+{
+    if (iter != 1 && (iter % 5 == 0)) {
+        timer++;
+        x = rand() % N;
+        y = rand() % M;
+    }
+    return 1;
+}
