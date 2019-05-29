@@ -9,11 +9,9 @@ script:
   - git ls-files src/ | xargs clang-format -i && git diff --exit-code
   - sudo apt-get install libgtest-dev
   - sudo apt-get install cmake
-  - cd /usr/src/googletest/googletest
-  - sudo mkdir build
-  - cd build
-  - sudo cmake CMakeLists.txt
-  - sudo make
+  - cd /usr/src/gtest
+  - cmake CMakeLists.txt
+  - make
   - sudo cp *.a /usr/lib
   - cd -
   - chmod 777 buildTest.sh
