@@ -19,14 +19,7 @@ Tick(int& num,
         s[i].y = s[i - 1].y;
     }
 
-    if (dir == 0)
-        s[0].y += 1;
-    if (dir == 1)
-        s[0].x -= 1;
-    if (dir == 2)
-        s[0].x += 1;
-    if (dir == 3)
-        s[0].y -= 1;
+    TurnSnake(dir);
 
     if ((s[0].x == f.x) && (s[0].y == f.y)) {
         num++;
