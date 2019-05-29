@@ -98,3 +98,16 @@ int TurnSnake(int dir)
     }
     return -1;
 }
+
+int TeleportationSnake(int& count, int N)
+{
+    if (count > N - 1) {
+        count = 0;
+        return 0;
+    }
+    if (count < 0) {
+        count = N - 1;
+        return 0;
+    }
+    return 1;
+}
