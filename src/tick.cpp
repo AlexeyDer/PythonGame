@@ -97,5 +97,5 @@ Tick(int& num,
         timer = 0;
     }
 
-    return max1;
+    return 0;
 }
