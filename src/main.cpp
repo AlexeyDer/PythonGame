@@ -3,25 +3,6 @@
 #include <time.h>
 using namespace sf;
 
-struct Snake s[100];
-struct Fruct f;
-struct Level1 p;
-struct Level1 p1;
-struct Level1 p2;
-struct Level1 p3;
-struct Level1 p4;
-struct Level2 t;
-struct Level2 t1;
-struct Level2 t2;
-struct Level2 t3;
-struct Level2 t4;
-struct Level2 t5;
-struct Level2 t6;
-struct Level2 t7;
-struct Level2 t8;
-struct Level2 t9;
-struct Sfruct suf;
-
 int main()
 {
     srand(time(NULL));
