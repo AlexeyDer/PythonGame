@@ -103,5 +103,6 @@ int KeyBoardPressUp(
 int KeyBoardPressDown(
         Keyboard::Key button, int& R, int& dir, int& L, int& U, int& D);
 int TurnSnake(int dir);
+int TeleportationSnake(int& count, int N);
 
 #endif // BINDING_H
