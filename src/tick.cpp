@@ -74,14 +74,8 @@ Tick(int& num,
         suf.y = -1;
     }
 
-    if (s[0].x > N - 1)
-        s[0].x = 0;
-    if (s[0].x < 0)
-        s[0].x = N - 1;
-    if (s[0].y > M - 1)
-        s[0].y = 0;
-    if (s[0].y < 0)
-        s[0].y = M - 1;
+    TeleportationSnake(s[0].x, N);
+    TeleportationSnake(s[0].y, M);
 
     for (int i = 1; i < num; i++) {
         if (s[0].x == s[i].x && s[0].y == s[i].y) {
