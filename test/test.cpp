@@ -106,6 +106,30 @@ TEST(KeyBoardPress, Down_3)
     ASSERT_EQ(res, 1);
 }
 
+TEST(TurnSnake, Down)
+{
+    int res = TurnSnake(0);
+    ASSERT_EQ(res, 0);
+}
+
+TEST(TurnSnake, Up)
+{
+    int res = TurnSnake(3);
+    ASSERT_EQ(res, 3);
+}
+
+TEST(TurnSnake, Left)
+{
+    int res = TurnSnake(1);
+    ASSERT_EQ(res, 1);
+}
+
+TEST(TurnSnake, Right)
+{
+    int res = TurnSnake(2);
+    ASSERT_EQ(res, 2);
+}
+
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
