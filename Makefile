@@ -9,7 +9,7 @@ SOURCES = $(wildcard $(addprefix src/, *.cpp))
 OBJECTS = $(patsubst $(addprefix src/, %.h), $(addprefix build/, %.o), $(SOURCES))
 EXECUTABLE = bin/main.exe
 
-TEST_SOURCES = $(wildcard $(addprefix test/, *.cpp)) $(wildcard $(addprefix src/, *.cpp))
+TEST_SOURCES = $(wildcard $(addprefix test/, *.cpp)) $(wildcard $(addprefix src/, *.cpp)) $(wildcard $(addprefix src/, *.h))
 TEST_OBJECTS = build/test.o build/binding.o
 TEST_EXECUTABLE = bin/test.exe
 
@@ -27,7 +27,6 @@ clean:
 .PHONY: test
 
 test: $(TEST_EXECUTABLE)
-	$(TEST_EXECUTABLE)
 
 $(TEST_EXECUTABLE): $(TEST_OBJECTS)
 	$(CC) $(TEST_OBJECTS) $(CFLAGS) $(LIBS_TEST) $(LIBS)  -o $@
