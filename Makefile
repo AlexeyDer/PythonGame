@@ -19,7 +19,7 @@ GTEST_LIBS = libgtest.a libgtest_main.a
 
 
 GTEST_LIB_DIR  = lib/
-GTEST_HEADERS = -Iinclude/gtest
+GTEST_HEADERS = -Iinclude/
 
 all: $(EXECUTABLE)
 
@@ -39,4 +39,4 @@ $(TEST_EXECUTABLE): $(TEST_OBJECTS)
 	$(CC) $(TEST_OBJECTS) $(CFLAGS) $(LIBS_TEST) $(LIBS)  -o $@
 
 build/%.o: test/%.cpp
-	  g++ -c $(GTEST_HEADERS)	$(LIBS_TEST) $(CFLAGS) $< -o $@
+	  g++ -c 	$(LIBS_TEST) $(CFLAGS) $(GTEST_HEADERS) $< -o $@
