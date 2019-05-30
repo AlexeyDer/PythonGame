@@ -1,5 +1,13 @@
 # bin/bash
 
+sudo apt-get install libgtest-dev
+sudo apt-get install cmake
+cd /usr/src/gtest
+sudo cmake CMakeLists.txt
+sudo make
+sudo cp *.a /usr/bin/ld
+cd -
+
 mkdir lib
 wget https://github.com/google/googletest/archive/release-1.8.1.tar.gz
 tar xf release-1.8.1.tar.gz
