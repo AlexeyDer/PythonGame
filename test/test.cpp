@@ -1,6 +1,21 @@
 #include "../src/binding.h"
 #include <gtest/gtest.h>
 
+TEST(TeleportationSnake, AroundTheBoard)
+{
+    int n = 10;
+    int a = -1;
+    int b = 12;
+
+    int R = TeleportationSnake(a, n);
+    int L = TeleportationSnake(b, n);
+    for (int i = 0; i < n; i++) {
+        ASSERT_EQ(TeleportationSnake(i, n), 1);
+    }
+    ASSERT_EQ(R, 0);
+    ASSERT_EQ(L, 0);
+}
+
 TEST(KeyBoardPress, Left_1)
 {
     int a, b;
@@ -128,21 +143,6 @@ TEST(TurnSnake, Right)
 {
     int res = TurnSnake(2);
     ASSERT_EQ(res, 2);
-}
-
-TEST(TeleportationSnake, AroundTheBoard)
-{
-    int n = 10;
-    int a = -1;
-    int b = 12;
-
-    int R = TeleportationSnake(a, n);
-    int L = TeleportationSnake(b, n);
-    for (int i = 0; i < n; i++) {
-        ASSERT_EQ(TeleportationSnake(i, n), 1);
-    }
-    ASSERT_EQ(R, 0);
-    ASSERT_EQ(L, 0);
 }
 
 TEST(SuperFructSpawn, Spawn)
