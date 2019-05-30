@@ -36,10 +36,10 @@ $(TEST_EXECUTABLE): $(TEST_OBJECTS)
 	$(CC) $(G_LIB) $(TEST_OBJECTS) $(CFLAGS) $(LIBS_TEST) $(LIBS)  -o $@
 
 test/build/%.o: test/%.cpp
-	g++ -c $(G_LIB)	$(LIBS_TEST) $(CFLAGS) $< -o $@
+	g++  $(G_LIB)	$(LIBS_TEST) $(CFLAGS) -c $< -o $@
 
 test/build/%.o: src/%.cpp
-	g++ -c $(G_LIB)	$(LIBS_TEST) $(CFLAGS) $< -o $@
+	g++ $(G_LIB)	$(LIBS_TEST) $(CFLAGS) -c $< -o $@
 
 Folders:
 	mkdir -p test/build/
