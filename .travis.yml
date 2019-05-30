@@ -7,13 +7,6 @@ script:
   - sudo apt-get install libsfml-dev
   - make
   - git ls-files src/ | xargs clang-format -i && git diff --exit-code
-  - sudo apt-get install libgtest-dev
-  - sudo apt-get install cmake
-  - cd /usr/src/gtest
-  - sudo cmake CMakeLists.txt
-  - sudo make
-  - sudo ln -s /usr/lib/libgtest.a /usr/local/lib/gtest/libgtest.a
-  - sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/gtest/libgtest_main.a
-  - cd -
+
   - chmod 777 runTests.sh
   - ./runTests.sh
