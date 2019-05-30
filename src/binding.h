@@ -94,14 +94,7 @@ std::string To_string(T value)
     // convert the string stream into a string and return
     return os.str();
 }
-int KeyBoardPressRight(
-        Keyboard::Key button, int& R, int& dir, int& L, int& U, int& D);
-int KeyBoardPressLeft(
-        Keyboard::Key button, int& R, int& dir, int& L, int& U, int& D);
-int KeyBoardPressUp(
-        Keyboard::Key button, int& R, int& dir, int& L, int& U, int& D);
-int KeyBoardPressDown(
-        Keyboard::Key button, int& R, int& dir, int& L, int& U, int& D);
+
 int TurnSnake(int dir);
 int TeleportationSnake(int& count, int N);
 int SuperFructSpawn(int iter, int& x, int& y, int N, int M, int& timer);
