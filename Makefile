@@ -1,31 +1,45 @@
-CFLAGS = -Wall -Werror 
+CC = g++
+CFLAGS = -Wall -Werror
 OBJ = g++ -c $< -o $@ $(CFLAGS)
 LIBS = -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
-
+LIBS_TEST = -lgtest -lgtest_main -pthread
 .PHONY: all clean
 
+SOURCES = $(wildcard $(addprefix src/, *.cpp))
+OBJECTS = $(patsubst $(addprefix src/, %.h), $(addprefix build/, %.o), $(SOURCES))
 EXECUTABLE = bin/main.exe
 
-all: $(EXECUTABLE) start.sh
-	
-$(EXECUTABLE):  build/main.o build/binding.o build/tick.o build/lev.o build/lev2.o
-	g++ $^ -o $@ $(CFLAGS) $(LIBS) 
+TEST_SOURCES = $(wildcard $(addprefix test/, *.cpp)) $(wildcard $(addprefix src/, *.cpp)) $(wildcard $(addprefix src/, *.h))
+TEST_OBJECTS = test/build/test.o test/build/binding.o
+TEST_EXECUTABLE = bin/test.exe
 
-build/binding.o: src/binding.cpp src/binding.h 
+G_LIB = -I lib -I include/gtest
+
+
+all: $(EXECUTABLE)
+
+$(EXECUTABLE):  $(OBJECTS)
+	g++ $^ -o $@ $(CFLAGS) $(LIBS)
+
+build/%.o: src/%.cpp
 	$(OBJ)
-
-build/tick.o: src/tick.cpp src/SuperFrute.hpp
-	$(OBJ)
-
-build/lev.o: src/lev.cpp 
-	$(OBJ)
-
-build/lev2.o: src/lev2.cpp 
-	$(OBJ)
-
-build/main.o: src/main.cpp src/SuperFrute.hpp
-	$(OBJ) 
 
 clean:
-	rm build/*.o
-	rm bin/*.exe
+	rm -f $(EXECUTABLE) $(TEST_EXECUTABLE)  build/*.o
+	rm -rf test/build/
+
+.PHONY: test
+
+test: Folders $(TEST_EXECUTABLE)
+
+$(TEST_EXECUTABLE): $(TEST_OBJECTS)
+	$(CC) $(G_LIB) $(TEST_OBJECTS) $(CFLAGS) $(LIBS_TEST) $(LIBS)  -o $@
+
+test/build/%.o: test/%.cpp
+	$(CC) -c $(LIBS_TEST) $(LIBS) $(CFLAGS) $(G_LIB)	 $< -o $@
+
+test/build/%.o: src/%.cpp
+	$(CC) -c $(LIBS_TEST) $(LIBS) $(CFLAGS) $(G_LIB)	 $< -o $@
+
+Folders:
+	mkdir -p test/build/

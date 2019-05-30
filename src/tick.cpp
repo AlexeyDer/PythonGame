@@ -1,10 +1,5 @@
-#include "SuperFrute.hpp"
 #include "binding.h"
 #include "ctime"
-#include "fruct.h"
-#include "snake.h"
-
-using namespace std;
 
 int timer = 0;
 
@@ -24,14 +19,7 @@ Tick(int& num,
         s[i].y = s[i - 1].y;
     }
 
-    if (dir == 0)
-        s[0].y += 1;
-    if (dir == 1)
-        s[0].x -= 1;
-    if (dir == 2)
-        s[0].x += 1;
-    if (dir == 3)
-        s[0].y -= 1;
+    TurnSnake(dir);
 
     if ((s[0].x == f.x) && (s[0].y == f.y)) {
         num++;
@@ -40,28 +28,12 @@ Tick(int& num,
         if (num >= max2)
             max2 = num;
 
-        if (num > 5) {
-            delay = 0.09;
-            spe = 2;
-        }
-        if (num > 10) {
-            delay = 0.06;
-            spe = 3;
-        }
-        if (num > 15) {
-            delay = 0.04;
-            spe = 4;
-        }
-
+        UpSpeed(num, delay, spe);
         f.x = rand() % N;
         f.y = rand() % M;
 
         iter++;
-        if (iter != 1 && (iter % 5 == 0)) {
-            ++timer;
-            suf.x = rand() % N;
-            suf.y = rand() % M;
-        }
+        SuperFructSpawn(iter, suf.x, suf.y, N, M, timer);
     }
 
     if ((s[0].x == suf.x) && (s[0].y == suf.y)) {
@@ -70,30 +42,13 @@ Tick(int& num,
             max1 = num;
         if (num >= max2)
             max2 = num;
-        if (num > 5) {
-            delay = 0.09;
-            spe = 2;
-        }
-        if (num > 10) {
-            delay = 0.06;
-            spe = 3;
-        }
-        if (num > 15) {
-            delay = 0.04;
-            spe = 4;
-        }
+        UpSpeed(num, delay, spe);
         suf.x = -1;
         suf.y = -1;
     }
 
-    if (s[0].x > N - 1)
-        s[0].x = 0;
-    if (s[0].x < 0)
-        s[0].x = N - 1;
-    if (s[0].y > M - 1)
-        s[0].y = 0;
-    if (s[0].y < 0)
-        s[0].y = M - 1;
+    TeleportationSnake(s[0].x, N);
+    TeleportationSnake(s[0].y, M);
 
     for (int i = 1; i < num; i++) {
         if (s[0].x == s[i].x && s[0].y == s[i].y) {
@@ -109,5 +64,5 @@ Tick(int& num,
         timer = 0;
     }
 
-    return max1;
+    return 0;
 }

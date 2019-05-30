@@ -7,4 +7,7 @@ script:
   - sudo apt-get install libsfml-dev
   - make
   - git ls-files src/ | xargs clang-format -i && git diff --exit-code
-
+  - chmod 777 runTests.sh
+  - chmod 777 buildTest.sh
+  - ./buildTest.sh
+  - ./runTests.sh
