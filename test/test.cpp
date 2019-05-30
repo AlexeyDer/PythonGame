@@ -148,13 +148,14 @@ TEST(TeleportationSnake, AroundTheBoard)
 TEST(SuperFructSpawn, Spawn)
 {
     int a = 1;
-    int N = 100;
+    int N = 10;
+    int M = 110;
     srand(time(NULL));
-    for (int i = 1; i < 100; i++)
-        if (i % 5 == 0 && i != 1)
-            ASSERT_EQ(SuperFructSpawn(i, a, a, a, N, N), 0);
+    for (int i = 1; i < 30; i++)
+        if (i % 5 == 0)
+            ASSERT_EQ(SuperFructSpawn(i, a, a, a, N, M), 0);
         else
-            ASSERT_EQ(SuperFructSpawn(i, a, a, a, N, N), 1);
+            ASSERT_EQ(SuperFructSpawn(i, a, a, a, N, M), 1);
 }
 
 TEST(UpSpeed, Levels)
