@@ -9,4 +9,6 @@ script:
   - git ls-files src/ | xargs clang-format -i && git diff --exit-code
 
   - chmod 777 runTests.sh
+  - chmod 777 buildTests.sh
+  - ./buildTests.sh
   - ./runTests.sh
