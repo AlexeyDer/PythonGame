@@ -15,4 +15,9 @@ sudo apt-get install libsfml-dev
 git clone https://github.com/AlexeyDer/PythonGame.git
 ./start.sh
 ```
+## Make and Build Tests
+```
+./buildTest.sh
+./runTests.sh
+```
 
