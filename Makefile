@@ -13,6 +13,12 @@ TEST_SOURCES = $(wildcard $(addprefix test/, *.cpp)) $(wildcard $(addprefix src/
 TEST_OBJECTS = build/test.o build/binding.o
 TEST_EXECUTABLE = bin/test.exe
 
+GTEST_LIBS = libgtest.a libgtest_main.a
+
+
+GTEST_LIB_DIR  = lib/
+GTEST_HEADERS = -Iinclude/gtest/*.h
+
 all: $(EXECUTABLE)
 
 $(EXECUTABLE):  $(OBJECTS)
@@ -23,7 +29,6 @@ build/%.o: src/%.cpp
 
 clean:
 	rm -f $(EXECUTABLE) $(TEST_EXECUTABLE)  build/*.o
-
 .PHONY: test
 
 test: $(TEST_EXECUTABLE)
@@ -32,4 +37,4 @@ $(TEST_EXECUTABLE): $(TEST_OBJECTS)
 	$(CC) $(TEST_OBJECTS) $(CFLAGS) $(LIBS_TEST) $(LIBS)  -o $@
 
 build/%.o: test/%.cpp
-	 g++ -c $< -Iinclude/ -o $@ $(CFLAGS)
+	  g++ -c $(GTEST_HEADERS) $< -o $@ $(CFLAGS)
