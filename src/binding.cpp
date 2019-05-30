@@ -122,3 +122,24 @@ int SuperFructSpawn(int iter, int& x, int& y, int N, int M, int& timer)
     }
     return 1;
 }
+
+int UpSpeed(int num, float& delay, int& spe)
+{
+    if (num > 15) {
+        delay = 0.04;
+        spe = 4;
+        return 3;
+    }
+    if (num > 10) {
+        delay = 0.06;
+        spe = 3;
+        return 2;
+    }
+    if (num > 5) {
+        delay = 0.09;
+        spe = 2;
+        return 1;
+    }
+
+    return 0;
+}
