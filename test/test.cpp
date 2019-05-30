@@ -145,6 +145,37 @@ TEST(TeleportationSnake, AroundTheBoard)
     ASSERT_EQ(L, 0);
 }
 
+TEST(SuperFructSpawn, Spawn)
+{
+    int a = 1;
+    int N = 100;
+    srand(time(NULL));
+    for (int i = 1; i < 100; i++)
+        if (i % 5 == 0 && i != 1)
+            ASSERT_EQ(SuperFructSpawn(i, a, a, a, N, N), 0);
+        else
+            ASSERT_EQ(SuperFructSpawn(i, a, a, a, a, a), 1);
+}
+
+TEST(UpSpeed, Levels)
+{
+    int a = 1;
+    int b = 2;
+    int c = 3;
+    float f = 0.1;
+
+    for (int i = 0; i < 100; i++) {
+        if (i < 6)
+            ASSERT_EQ(UpSpeed(i, f, a), 0);
+        else if (i < 11)
+            ASSERT_EQ(UpSpeed(i, f, b), 1);
+        else if (i < 16)
+            ASSERT_EQ(UpSpeed(i, f, c), 2);
+        else
+            ASSERT_EQ(UpSpeed(i, f, a), 3);
+    }
+}
+
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
