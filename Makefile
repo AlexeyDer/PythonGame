@@ -13,11 +13,13 @@ TEST_SOURCES = $(wildcard $(addprefix test/, *.cpp)) $(wildcard $(addprefix src/
 TEST_OBJECTS = build/test.o build/binding.o
 TEST_EXECUTABLE = bin/test.exe
 
+GTEST_DIR = include/
+USER_DIR = src/
 GTEST_LIBS = libgtest.a libgtest_main.a
 
 
 GTEST_LIB_DIR  = lib/
-GTEST_HEADERS = -Linclude/gtest/
+GTEST_HEADERS = -Iinclude
 
 all: $(EXECUTABLE)
 
@@ -37,4 +39,4 @@ $(TEST_EXECUTABLE): $(TEST_OBJECTS)
 	$(CC) $(TEST_OBJECTS) $(CFLAGS) $(LIBS_TEST) $(LIBS)  -o $@
 
 build/%.o: test/%.cpp
-	  g++ -c $(GTEST_HEADERS) $< -o $@ $(CFLAGS)
+	  g++ -c $(LIBS_TEST) $(CFLAGS) $< -o $@
