@@ -13,7 +13,7 @@ TEST_SOURCES = $(wildcard $(addprefix test/, *.cpp)) $(wildcard $(addprefix src/
 TEST_OBJECTS = test/build/test.o test/build/binding.o
 TEST_EXECUTABLE = bin/test.exe
 
-G_LIB = -Ilib/*.so -Iinclude/
+G_LIB = -I lib -I include/gtest
 
 
 all: $(EXECUTABLE)
@@ -36,10 +36,10 @@ $(TEST_EXECUTABLE): $(TEST_OBJECTS)
 	$(CC) $(G_LIB) $(TEST_OBJECTS) $(CFLAGS) $(LIBS_TEST) $(LIBS)  -o $@
 
 test/build/%.o: test/%.cpp
-	g++  $(G_LIB)	$(LIBS_TEST) $(CFLAGS) -c $< -o $@
+	$(CC) -c $(LIBS_TEST) $(LIBS) $(CFLAGS) $(G_LIB)	 $< -o $@
 
 test/build/%.o: src/%.cpp
-	g++ $(G_LIB)	$(LIBS_TEST) $(CFLAGS) -c $< -o $@
+	$(CC) -c $(LIBS_TEST) $(LIBS) $(CFLAGS) $(G_LIB)	 $< -o $@
 
 Folders:
 	mkdir -p test/build/
