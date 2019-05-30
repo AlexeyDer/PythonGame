@@ -105,5 +105,6 @@ int KeyBoardPressDown(
 int TurnSnake(int dir);
 int TeleportationSnake(int& count, int N);
 int SuperFructSpawn(int iter, int& x, int& y, int N, int M, int& timer);
+int UpSpeed(int num, float& delay, int& spe);
 
 #endif // BINDING_H
