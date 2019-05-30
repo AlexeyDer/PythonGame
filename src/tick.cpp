@@ -28,19 +28,7 @@ Tick(int& num,
         if (num >= max2)
             max2 = num;
 
-        if (num > 5) {
-            delay = 0.09;
-            spe = 2;
-        }
-        if (num > 10) {
-            delay = 0.06;
-            spe = 3;
-        }
-        if (num > 15) {
-            delay = 0.04;
-            spe = 4;
-        }
-
+        UpSpeed(num, delay, spe);
         f.x = rand() % N;
         f.y = rand() % M;
 
@@ -54,19 +42,7 @@ Tick(int& num,
             max1 = num;
         if (num >= max2)
             max2 = num;
-
-        if (num > 5) {
-            delay = 0.09;
-            spe = 2;
-        }
-        if (num > 10) {
-            delay = 0.06;
-            spe = 3;
-        }
-        if (num > 15) {
-            delay = 0.04;
-            spe = 4;
-        }
+        UpSpeed(num, delay, spe);
         suf.x = -1;
         suf.y = -1;
     }
