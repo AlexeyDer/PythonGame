@@ -10,8 +10,9 @@ script:
   - sudo apt-get install libgtest-dev
   - sudo apt-get install cmake
   - cd /usr/src/gtest
-  - cmake CMakeLists.txt
-  - make
+  - sudo cmake CMakeLists.txt
+  - sudo make
   - mv *.a /usr/lib
+  - cd -
   - chmod 777 runTests.sh
   - ./runTests.sh
