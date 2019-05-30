@@ -17,7 +17,7 @@ GTEST_LIBS = libgtest.a libgtest_main.a
 
 
 GTEST_LIB_DIR  = lib/
-GTEST_HEADERS = -Iinclude/gtest/*.h
+GTEST_HEADERS = -Linclude/gtest/
 
 all: $(EXECUTABLE)
 
