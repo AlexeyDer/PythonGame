@@ -154,7 +154,7 @@ TEST(SuperFructSpawn, Spawn)
         if (i % 5 == 0 && i != 1)
             ASSERT_EQ(SuperFructSpawn(i, a, a, a, N, N), 0);
         else
-            ASSERT_EQ(SuperFructSpawn(i, a, a, a, a, a), 1);
+            ASSERT_EQ(SuperFructSpawn(i, a, a, a, N, N), 1);
 }
 
 TEST(UpSpeed, Levels)
