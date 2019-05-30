@@ -32,4 +32,4 @@ $(TEST_EXECUTABLE): $(TEST_OBJECTS)
 	$(CC) $(TEST_OBJECTS) $(CFLAGS) $(LIBS_TEST) $(LIBS)  -o $@
 
 build/%.o: test/%.cpp
-		$(OBJ)
+	 g++ -c $< -Iinclude/ -o $@ $(CFLAGS)
