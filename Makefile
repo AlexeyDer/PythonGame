@@ -10,7 +10,7 @@ OBJECTS = $(patsubst $(addprefix src/, %.h), $(addprefix build/, %.o), $(SOURCES
 EXECUTABLE = bin/main.exe
 
 TEST_SOURCES = $(wildcard $(addprefix test/, *.cpp)) $(wildcard $(addprefix src/, *.cpp)) $(wildcard $(addprefix src/, *.h))
-TEST_OBJECTS = build/test.o build/binding.o
+TEST_OBJECTS = test/build/test.o test/build/binding.o
 TEST_EXECUTABLE = bin/test.exe
 
 
@@ -24,12 +24,19 @@ build/%.o: src/%.cpp
 
 clean:
 	rm -f $(EXECUTABLE) $(TEST_EXECUTABLE)  build/*.o
+	rm -rf test/build/
 .PHONY: test
 
-test: $(TEST_EXECUTABLE)
+test: Folders $(TEST_EXECUTABLE)
 
 $(TEST_EXECUTABLE): $(TEST_OBJECTS)
 	$(CC) -Iinclude/gtest $(TEST_OBJECTS) $(CFLAGS) $(LIBS_TEST) $(LIBS)  -o $@
 
-build/%.o: test/%.cpp
-	  g++ -c 	$(LIBS_TEST) $(CFLAGS) $< -o $@
+test/build/%.o: test/%.cpp
+	g++ -c 	$(LIBS_TEST) $(CFLAGS) $< -o $@
+
+test/build/%.o: src/%.cpp
+	g++ -c 	$(LIBS_TEST) $(CFLAGS) $< -o $@
+
+Folders:
+	mkdir -p test/build/
