@@ -13,6 +13,8 @@ TEST_SOURCES = $(wildcard $(addprefix test/, *.cpp)) $(wildcard $(addprefix src/
 TEST_OBJECTS = test/build/test.o test/build/binding.o
 TEST_EXECUTABLE = bin/test.exe
 
+G_LIB = -Ilib/*.so -Iinclude/
+
 
 all: $(EXECUTABLE)
 
@@ -25,18 +27,19 @@ build/%.o: src/%.cpp
 clean:
 	rm -f $(EXECUTABLE) $(TEST_EXECUTABLE)  build/*.o
 	rm -rf test/build/
+
 .PHONY: test
 
 test: Folders $(TEST_EXECUTABLE)
 
 $(TEST_EXECUTABLE): $(TEST_OBJECTS)
-	$(CC) -Iinclude/gtest $(TEST_OBJECTS) $(CFLAGS) $(LIBS_TEST) $(LIBS)  -o $@
+	$(CC) $(G_LIB) $(TEST_OBJECTS) $(CFLAGS) $(LIBS_TEST) $(LIBS)  -o $@
 
 test/build/%.o: test/%.cpp
-	g++ -c 	$(LIBS_TEST) $(CFLAGS) $< -o $@
+	g++ -c $(G_LIB)	$(LIBS_TEST) $(CFLAGS) $< -o $@
 
 test/build/%.o: src/%.cpp
-	g++ -c 	$(LIBS_TEST) $(CFLAGS) $< -o $@
+	g++ -c $(G_LIB)	$(LIBS_TEST) $(CFLAGS) $< -o $@
 
 Folders:
 	mkdir -p test/build/
