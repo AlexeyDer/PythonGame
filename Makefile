@@ -31,7 +31,6 @@ clean:
 .PHONY: test
 
 test: Folders $(TEST_EXECUTABLE)
-	$(TEST_EXECUTABLE)
 
 $(TEST_EXECUTABLE): $(TEST_OBJECTS)
 	$(CC) $(G_LIB) $(TEST_OBJECTS) $(CFLAGS) $(LIBS_TEST) $(LIBS)  -o $@
