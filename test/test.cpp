@@ -1,5 +1,5 @@
-#include "../include/gtest/gtest.h"
 #include "../src/binding.h"
+#include <gtest/gtest.h>
 
 TEST(KeyBoardPress, Left_1)
 {
