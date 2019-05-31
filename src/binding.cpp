@@ -18,18 +18,6 @@ struct Level2 t8;
 struct Level2 t9;
 struct Sfruct suf;
 
-int KeyBoardPressRight(
-        Keyboard::Key button, int& R, int& dir, int& L, int& U, int& D)
-{
-    return 1;
-}
-
-int KeyBoardPressDown(
-        Keyboard::Key button, int& R, int& dir, int& L, int& U, int& D)
-{
-    return 1;
-}
-
 int TurnSnake(int dir)
 {
     if (dir == 0) {
