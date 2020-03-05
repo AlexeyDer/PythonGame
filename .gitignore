@@ -5,3 +5,5 @@ README.md
 *.pro.user
 *.exe
 *.o
+bin/
+build/
